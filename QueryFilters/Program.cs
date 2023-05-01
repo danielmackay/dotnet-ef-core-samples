@@ -23,8 +23,10 @@ var products = new List<Product>()
 await db.Products.AddRangeAsync(products);
 await db.SaveChangesAsync();
 
-var allProducts = await db.Products.ToListAsync();
+var visibleProducts = await db.Products.ToListAsync();
+Console.WriteLine($"Visible products: {visibleProducts.Count}");
 
-Console.WriteLine($"All products: {allProducts.Count}");
+var allProducts = await db.Products.IgnoreQueryFilters().ToListAsync();
+Console.WriteLine($"All products (including deleted): {allProducts.Count}");
 
 Console.ReadLine();
