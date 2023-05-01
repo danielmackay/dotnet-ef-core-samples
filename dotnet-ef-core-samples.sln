@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QueryFilters", "QueryFilters\QueryFilters.csproj", "{E017A4E6-C456-4BAE-AFBE-311161703A67}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tags", "Tags\Tags.csproj", "{497EF7D3-7140-4AC9-AA05-02BD7B279763}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,8 +17,15 @@ Global
 		{E017A4E6-C456-4BAE-AFBE-311161703A67}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E017A4E6-C456-4BAE-AFBE-311161703A67}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E017A4E6-C456-4BAE-AFBE-311161703A67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{497EF7D3-7140-4AC9-AA05-02BD7B279763}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{497EF7D3-7140-4AC9-AA05-02BD7B279763}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{497EF7D3-7140-4AC9-AA05-02BD7B279763}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{497EF7D3-7140-4AC9-AA05-02BD7B279763}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CD1F4D57-26D6-4893-A206-3722D94F1339}
 	EndGlobalSection
 EndGlobal
