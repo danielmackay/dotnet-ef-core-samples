@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-Console.WriteLine("Bulk Updates Sample");
+Console.WriteLine("Bulk Deletes Sample");
 
 using var db = new ApplicationDbContext();
 await db.Database.EnsureDeletedAsync();
@@ -24,11 +24,11 @@ await db.Products.AddRangeAsync(products);
 await db.SaveChangesAsync();
 
 var allProducts = await db.Products.ToListAsync();
-Console.WriteLine($"All products: {allProducts.Count}");
+allProducts.ForEach(p => Console.WriteLine(p.Name));
 
 await db.Products
     .Where(p => p.IsDeleted)
-    .ExecuteUpdateAsync(u => u.SetProperty(p => p.Name, p => p.Name + "(DELETED)"));
+    .ExecuteDeleteAsync();
 
 var allProducts2 = await db.Products
     .AsNoTracking()
