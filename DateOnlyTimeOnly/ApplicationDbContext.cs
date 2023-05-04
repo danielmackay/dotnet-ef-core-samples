@@ -9,7 +9,7 @@ public class ApplicationDbContext : DbContext
     {
         optionsBuilder
             .UseSqlServer(
-                @"Server=(localdb)\mssqllocaldb;Database=CompiledQueries;Trusted_Connection=True");
+                @"Server=(localdb)\mssqllocaldb;Database=DateOnlyTimeOnly;Trusted_Connection=True");
 
         optionsBuilder.LogTo(Console.WriteLine, new[] { RelationalEventId.CommandExecuted });
     }
