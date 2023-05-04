@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SplitQueries", "SplitQuerie
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BulkUpdates", "BulkUpdates\BulkUpdates.csproj", "{62D40C1F-A10E-48A8-B9D4-AD3995771230}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BulkDeletes", "BulkDeletes\BulkDeletes.csproj", "{362061AF-230E-4C45-8ACD-F47ADBCFBA3B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BulkDeletes", "BulkDeletes\BulkDeletes.csproj", "{362061AF-230E-4C45-8ACD-F47ADBCFBA3B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompiledQueries", "CompiledQueries\CompiledQueries.csproj", "{9CA689B1-601C-468F-AB89-33CE2AE0B959}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{362061AF-230E-4C45-8ACD-F47ADBCFBA3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{362061AF-230E-4C45-8ACD-F47ADBCFBA3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{362061AF-230E-4C45-8ACD-F47ADBCFBA3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CA689B1-601C-468F-AB89-33CE2AE0B959}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CA689B1-601C-468F-AB89-33CE2AE0B959}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CA689B1-601C-468F-AB89-33CE2AE0B959}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CA689B1-601C-468F-AB89-33CE2AE0B959}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
