@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BulkDeletes", "BulkDeletes\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompiledQueries", "CompiledQueries\CompiledQueries.csproj", "{9CA689B1-601C-468F-AB89-33CE2AE0B959}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DateOnlyTimeOnly", "DateOnlyTimeOnly\DateOnlyTimeOnly.csproj", "{EC10FA96-05E1-46A5-99DE-223BF5B42D1B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DateOnlyTimeOnly", "DateOnlyTimeOnly\DateOnlyTimeOnly.csproj", "{EC10FA96-05E1-46A5-99DE-223BF5B42D1B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MigrationBundles", "MigrationBundles\MigrationBundles.csproj", "{43359ADF-86CF-4DC5-A571-1B0105F1AEEE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{EC10FA96-05E1-46A5-99DE-223BF5B42D1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC10FA96-05E1-46A5-99DE-223BF5B42D1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC10FA96-05E1-46A5-99DE-223BF5B42D1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43359ADF-86CF-4DC5-A571-1B0105F1AEEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43359ADF-86CF-4DC5-A571-1B0105F1AEEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43359ADF-86CF-4DC5-A571-1B0105F1AEEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43359ADF-86CF-4DC5-A571-1B0105F1AEEE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
