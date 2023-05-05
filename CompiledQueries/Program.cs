@@ -25,7 +25,7 @@ await db.SaveChangesAsync();
 Console.WriteLine("Products added");
 
 var product = ProductQueries.GetFirstOrDefault(db, "Product 1");
-Console.WriteLine($"Product {product.Name}");
+Console.WriteLine($"Product {product?.Name}");
 
 var allProducts = ProductQueries.GetAll(db);
 allProducts.ForEach(p => Console.WriteLine($"Product {p.Name}"));
