@@ -65,7 +65,15 @@ Console.WriteLine("Inserting Data");
 db.Contacts.AddRange(contacts);
 db.SaveChanges();
 
-// TODO: Query data
+var contact = db.Contacts.First(c => c.Address.Line1 == "456 Main St.");
+Console.WriteLine($"{contact.Name}");
+
+var notes = db.Contacts
+    .First(c => c.Name == "John Smith")
+    .Notes;
+
+foreach (var note in notes)
+    Console.WriteLine($"{note.Text}");
 
 // TODO: Update data
 
