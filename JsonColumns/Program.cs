@@ -75,8 +75,15 @@ var notes = db.Contacts
 foreach (var note in notes)
     Console.WriteLine($"{note.Text}");
 
-// TODO: Update data
+Console.WriteLine("Updating Data");
+var contactToUpdate = db.Contacts.First(c => c.Name == "John Doe");
+contactToUpdate.Address.Line1 = "111 Update St.";
+db.SaveChanges();
 
-// TODO: Delete data
+Console.WriteLine("Deleting Data");
+var contactToDelete = db.Contacts.First(c => c.Name == "Jane Doe");
+contact.Address = null;
+db.SaveChanges();
 
 Console.ReadLine();
+
