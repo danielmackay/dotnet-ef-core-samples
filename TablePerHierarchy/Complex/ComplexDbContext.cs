@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 
-public class ApplicationDbContext : DbContext
+namespace TablePerHierarchy.Complex;
+
+public class ComplexDbContext : DbContext
 {
     public DbSet<FarmAnimal> FarmAnimals { get; set; }
 
