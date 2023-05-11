@@ -21,7 +21,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MigrationBundles", "Migrati
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JsonColumns", "JsonColumns\JsonColumns.csproj", "{9F269E9D-2748-4481-876C-91003F67AB43}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnmappedTypes", "UnmappedTypes\UnmappedTypes.csproj", "{6A259083-7F74-4C50-A16A-ECDD809CBC60}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnmappedTypes", "UnmappedTypes\UnmappedTypes.csproj", "{6A259083-7F74-4C50-A16A-ECDD809CBC60}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TablePerHierarchy", "TablePerHierarchy\TablePerHierarchy.csproj", "{C493EF89-8B62-423A-8F2B-03E60E46417E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,10 @@ Global
 		{6A259083-7F74-4C50-A16A-ECDD809CBC60}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A259083-7F74-4C50-A16A-ECDD809CBC60}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A259083-7F74-4C50-A16A-ECDD809CBC60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C493EF89-8B62-423A-8F2B-03E60E46417E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C493EF89-8B62-423A-8F2B-03E60E46417E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C493EF89-8B62-423A-8F2B-03E60E46417E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C493EF89-8B62-423A-8F2B-03E60E46417E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
