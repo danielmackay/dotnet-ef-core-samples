@@ -31,6 +31,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TablePerConcreateType", "Ta
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemporalTables", "TemporalTables\TemporalTables.csproj", "{29E7E773-CA11-411A-BF06-D1EF3FC02235}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackingFields", "BackingFields\BackingFields.csproj", "{14F85DC9-FB8D-4709-85F7-EABF35518FBE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +95,10 @@ Global
 		{29E7E773-CA11-411A-BF06-D1EF3FC02235}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29E7E773-CA11-411A-BF06-D1EF3FC02235}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29E7E773-CA11-411A-BF06-D1EF3FC02235}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14F85DC9-FB8D-4709-85F7-EABF35518FBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14F85DC9-FB8D-4709-85F7-EABF35518FBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14F85DC9-FB8D-4709-85F7-EABF35518FBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14F85DC9-FB8D-4709-85F7-EABF35518FBE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
