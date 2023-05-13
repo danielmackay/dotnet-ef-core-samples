@@ -37,6 +37,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShadowProperties", "ShadowP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValueConverters", "ValueConverters\ValueConverters.csproj", "{D655DCE1-25D9-4190-BFEA-6A62E5E7D13B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OwnedEntities", "OwnedEntities\OwnedEntities.csproj", "{22C4E46C-A083-4FDC-8AC9-A2056FC01205}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,6 +113,10 @@ Global
 		{D655DCE1-25D9-4190-BFEA-6A62E5E7D13B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D655DCE1-25D9-4190-BFEA-6A62E5E7D13B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D655DCE1-25D9-4190-BFEA-6A62E5E7D13B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22C4E46C-A083-4FDC-8AC9-A2056FC01205}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22C4E46C-A083-4FDC-8AC9-A2056FC01205}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22C4E46C-A083-4FDC-8AC9-A2056FC01205}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22C4E46C-A083-4FDC-8AC9-A2056FC01205}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
