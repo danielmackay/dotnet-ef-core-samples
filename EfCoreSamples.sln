@@ -23,11 +23,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JsonColumns", "JsonColumns\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnmappedTypes", "UnmappedTypes\UnmappedTypes.csproj", "{6A259083-7F74-4C50-A16A-ECDD809CBC60}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TablePerHierarchy", "TablePerHierarchy\TablePerHierarchy.csproj", "{C493EF89-8B62-423A-8F2B-03E60E46417E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TablePerHierarchy", "TablePerHierarchy\TablePerHierarchy.csproj", "{C493EF89-8B62-423A-8F2B-03E60E46417E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TablePerType", "TablePerType\TablePerType.csproj", "{D27C5659-FD23-4C90-9EC0-E764BB6A5521}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TablePerConcreateType", "TablePerConcreteType\TablePerConcreateType.csproj", "{CA856515-767D-4A15-8D83-B02750895F6C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemporalTables", "TemporalTables\TemporalTables.csproj", "{29E7E773-CA11-411A-BF06-D1EF3FC02235}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -87,6 +89,10 @@ Global
 		{CA856515-767D-4A15-8D83-B02750895F6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA856515-767D-4A15-8D83-B02750895F6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA856515-767D-4A15-8D83-B02750895F6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29E7E773-CA11-411A-BF06-D1EF3FC02235}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29E7E773-CA11-411A-BF06-D1EF3FC02235}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29E7E773-CA11-411A-BF06-D1EF3FC02235}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29E7E773-CA11-411A-BF06-D1EF3FC02235}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
