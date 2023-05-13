@@ -31,3 +31,8 @@ erDiagram
 - Mapping encrypted DB columns to decrypted CLR properties
 - Mapping simple properties to complex CLR types (e.g. Strongly Typed IDs)
 - Mapping Enum values to/from strings in the DB
+
+## Resources
+
+- https://learn.microsoft.com/en-us/ef/core/modeling/value-conversions?tabs=data-annotations
+

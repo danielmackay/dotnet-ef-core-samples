@@ -52,3 +52,8 @@ erDiagram
 ## Guidance
 
 TPH is usually fine for most applications and is a good default for a wide range of scenarios.
+
+## Resources
+
+- https://learn.microsoft.com/en-us/ef/core/modeling/inheritance#table-per-hierarchy-and-discriminator-configuration
+
