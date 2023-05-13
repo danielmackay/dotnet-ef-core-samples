@@ -18,4 +18,9 @@
     {
         _createdTs = DateTime.UtcNow;
     }
+
+    public override string ToString()
+    {
+        return $"Id: {Id}, Name: {Name}, Price: {Price}, VoucherCode: {VoucherCode}, CreatedTs: {_createdTs}";
+    }
 }

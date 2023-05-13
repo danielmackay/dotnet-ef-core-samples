@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Diagnostics;
 
 public class ApplicationDbContext : DbContext
 {
@@ -11,7 +10,7 @@ public class ApplicationDbContext : DbContext
             .UseSqlServer(
                 @"Server=(localdb)\mssqllocaldb;Database=BulkUpdate;Trusted_Connection=True");
 
-        optionsBuilder.LogTo(Console.WriteLine, new[] { RelationalEventId.CommandExecuted });
+        //optionsBuilder.LogTo(Console.WriteLine, new[] { RelationalEventId.CommandExecuted });
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

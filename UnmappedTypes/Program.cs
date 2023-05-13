@@ -4,8 +4,8 @@ using Microsoft.EntityFrameworkCore;
 Console.WriteLine("Unmapped Types Sample");
 
 using var db = new ApplicationDbContext();
-await db.Database.EnsureDeletedAsync();
-await db.Database.EnsureCreatedAsync();
+db.Database.EnsureDeleted();
+db.Database.EnsureCreated();
 
 var products = new List<Product>()
 {
@@ -21,14 +21,14 @@ var products = new List<Product>()
     new Product() { Name = "Product 10" , IsDeleted = true}
 };
 
-await db.Products.AddRangeAsync(products);
-await db.SaveChangesAsync();
+db.Products.AddRange(products);
+db.SaveChanges();
 
 Console.WriteLine("Querying Data");
-var allProducts = await db.Database
+var allProducts = db.Database
     .SqlQuery<UnmappedProduct>($"SELECT Name FROM Products")
-    .ToListAsync();
+    .ToList();
 
-allProducts.ForEach(p => Console.WriteLine(p.Name));
+allProducts.ForEach(Console.WriteLine);
 
 Console.ReadLine();

@@ -3,8 +3,8 @@
 Console.WriteLine("Json Columns Sample");
 
 using var db = new ApplicationDbContext();
-await db.Database.EnsureDeletedAsync();
-await db.Database.EnsureCreatedAsync();
+db.Database.EnsureDeleted();
+db.Database.EnsureCreated();
 
 var contacts = new List<Contact>
 {
@@ -66,14 +66,14 @@ db.Contacts.AddRange(contacts);
 db.SaveChanges();
 
 var contact = db.Contacts.First(c => c.Address.Line1 == "456 Main St.");
-Console.WriteLine($"{contact.Name}");
+Console.WriteLine(contact);
 
 var notes = db.Contacts
     .First(c => c.Name == "John Smith")
     .Notes;
 
 foreach (var note in notes)
-    Console.WriteLine($"{note.Text}");
+    Console.WriteLine(note);
 
 Console.WriteLine("Updating Data");
 var contactToUpdate = db.Contacts.First(c => c.Name == "John Doe");

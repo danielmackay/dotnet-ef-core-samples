@@ -18,9 +18,6 @@ db.Products.Add(product);
 db.SaveChanges();
 
 product = db.Products.First();
-PrintProduct(product);
+Console.WriteLine(product);
 
 Console.ReadLine();
-
-static void PrintProduct(Product product) =>
-    Console.WriteLine($"Product - ID:{product.Id}, Name:{product.Name}, Price:{product.Price}");

@@ -3,8 +3,8 @@
 Console.WriteLine("Compiled Queries Sample");
 
 using var db = new ApplicationDbContext();
-await db.Database.EnsureDeletedAsync();
-await db.Database.EnsureCreatedAsync();
+db.Database.EnsureDeleted();
+db.Database.EnsureCreated();
 
 var products = new List<Product>()
 {
@@ -20,14 +20,14 @@ var products = new List<Product>()
     new Product() { Name = "Product 10" , IsDeleted = true}
 };
 
-await db.Products.AddRangeAsync(products);
-await db.SaveChangesAsync();
+db.Products.AddRange(products);
+db.SaveChanges();
 Console.WriteLine("Products added");
 
 var product = ProductQueries.GetFirstOrDefault(db, "Product 1");
-Console.WriteLine($"Product {product?.Name}");
+Console.WriteLine(product);
 
 var allProducts = ProductQueries.GetAll(db);
-allProducts.ForEach(p => Console.WriteLine($"Product {p.Name}"));
+allProducts.ForEach(Console.WriteLine);
 
 Console.ReadLine();

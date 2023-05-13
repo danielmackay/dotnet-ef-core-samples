@@ -3,8 +3,8 @@
 Console.WriteLine("Query Filter Sample");
 
 using var db = new ApplicationDbContext();
-await db.Database.EnsureDeletedAsync();
-await db.Database.EnsureCreatedAsync();
+db.Database.EnsureDeleted();
+db.Database.EnsureCreated();
 
 var products = new List<Product>()
 {
@@ -20,13 +20,15 @@ var products = new List<Product>()
     new Product() { Name = "Product 10" , IsDeleted = true}
 };
 
-await db.Products.AddRangeAsync(products);
-await db.SaveChangesAsync();
+db.Products.AddRange(products);
+db.SaveChanges();
 
-var visibleProducts = await db.Products.ToListAsync();
-Console.WriteLine($"Visible products: {visibleProducts.Count}");
+var visibleProducts = db.Products.ToList();
+Console.WriteLine("Visible products");
+visibleProducts.ForEach(Console.WriteLine);
 
-var allProducts = await db.Products.IgnoreQueryFilters().ToListAsync();
-Console.WriteLine($"All products (including deleted): {allProducts.Count}");
+var allProducts = db.Products.IgnoreQueryFilters().ToList();
+Console.WriteLine($"All products (including deleted)");
+allProducts.ForEach(Console.WriteLine);
 
 Console.ReadLine();

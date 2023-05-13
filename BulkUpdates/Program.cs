@@ -3,8 +3,8 @@
 Console.WriteLine("Bulk Updates Sample");
 
 using var db = new ApplicationDbContext();
-await db.Database.EnsureDeletedAsync();
-await db.Database.EnsureCreatedAsync();
+db.Database.EnsureDeleted();
+db.Database.EnsureCreated();
 
 var products = new List<Product>()
 {
@@ -20,20 +20,22 @@ var products = new List<Product>()
     new Product() { Name = "Product 10" , IsDeleted = true}
 };
 
-await db.Products.AddRangeAsync(products);
-await db.SaveChangesAsync();
+db.Products.AddRange(products);
+db.SaveChanges();
 
-var allProducts = await db.Products.ToListAsync();
-Console.WriteLine($"All products: {allProducts.Count}");
+var allProducts = db.Products.ToList();
+Console.WriteLine("All Products");
+allProducts.ForEach(Console.WriteLine);
 
-await db.Products
+db.Products
     .Where(p => p.IsDeleted)
-    .ExecuteUpdateAsync(u => u.SetProperty(p => p.Name, p => p.Name + "(DELETED)"));
+    .ExecuteUpdate(u => u.SetProperty(p => p.Name, p => p.Name + "(DELETED)"));
 
-var allProducts2 = await db.Products
+var allProducts2 = db.Products
     .AsNoTracking()
-    .ToListAsync();
+    .ToList();
 
-allProducts2.ForEach(p => Console.WriteLine(p.Name));
+Console.WriteLine("All Products 2");
+allProducts2.ForEach(Console.WriteLine);
 
 Console.ReadLine();

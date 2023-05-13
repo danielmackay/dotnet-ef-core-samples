@@ -5,8 +5,8 @@ using SplitQueries;
 Console.WriteLine("Split Queries Sample");
 
 using var db = new BloggingContext(false);
-await db.Database.EnsureDeletedAsync();
-await db.Database.EnsureCreatedAsync();
+db.Database.EnsureDeleted();
+db.Database.EnsureCreated();
 
 var tags = new List<Tag>()
 {
@@ -91,35 +91,35 @@ var blogs = new List<Blog>()
     },
 };
 
-await db.Blogs.AddRangeAsync(blogs);
-await db.SaveChangesAsync();
+db.Blogs.AddRange(blogs);
+db.SaveChanges();
 
-await db.Posts
+db.Posts
     .Include(b => b.Blogs)
     .Include(p => p.Tags)
     .TagWith("Default Single Query")
-    .ToListAsync();
+    .ToList();
 
-await db.Posts
+db.Posts
     .AsSplitQuery()
     .Include(b => b.Blogs)
     .Include(p => p.Tags)
     .TagWith("Split Query")
-    .ToListAsync();
+    .ToList();
 
 using var db2 = new BloggingContext(true);
 
-await db.Posts
+db.Posts
     .Include(b => b.Blogs)
     .Include(p => p.Tags)
     .TagWith("Default Split Query")
-    .ToListAsync();
+    .ToList();
 
-await db.Posts
+db.Posts
     .AsSingleQuery()
     .Include(b => b.Blogs)
     .Include(p => p.Tags)
     .TagWith("Single Query")
-    .ToListAsync();
+    .ToList();
 
 Console.ReadLine();
