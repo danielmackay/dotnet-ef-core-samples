@@ -2,7 +2,7 @@
 
 [![.NET](https://github.com/danielmackay/dotnet-ef-core-samples/actions/workflows/dotnet.yml/badge.svg)](https://github.com/danielmackay/dotnet-ef-core-samples/actions/workflows/dotnet.yml)
 
-A collection of more interesting, but less commonly used features of Entity Framework Core.  
+A collection of the latest features of EF Core.  These are the more interesting (IMHO), but less commonly used features of EF Core.  
 
 ## Usage
 
