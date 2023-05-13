@@ -27,25 +27,22 @@ var latestTs = DateTime.UtcNow;
 Console.WriteLine("Original Product");
 product = db.Products.TemporalAsOf(originalTs).First();
 PrintTimestamp(originalTs);
-PrintProduct(product);
+Console.WriteLine(product);
 
 Console.WriteLine("Middle Product");
 product = db.Products.TemporalAsOf(middleTs).First();
 PrintTimestamp(middleTs);
-PrintProduct(product);
+Console.WriteLine(product);
 
 Console.WriteLine("Latest Product");
 product = db.Products.TemporalAsOf(latestTs).First();
 PrintTimestamp(latestTs);
-PrintProduct(product);
+Console.WriteLine(product);
 
 var temporalAll = db.Products.TemporalAll().ToList();
-temporalAll.ForEach(p => PrintProduct(p));
+temporalAll.ForEach(Console.WriteLine);
 
 Console.ReadLine();
-
-static void PrintProduct(Product product) => 
-    Console.WriteLine($"Product - ID:{product.Id}, Name:{product.Name}, Price:{product.Price}");
 
 static void PrintTimestamp(DateTime timestamp) =>
     Console.WriteLine($"Timestamp - {timestamp:HH:mm:ss}");

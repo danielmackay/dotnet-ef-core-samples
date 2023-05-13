@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Diagnostics;
 
 namespace JsonColumns;
 
@@ -13,7 +12,7 @@ public class ApplicationDbContext : DbContext
             .UseSqlServer(
                 @"Server=(localdb)\mssqllocaldb;Database=JsonColumns;Trusted_Connection=True");
 
-        optionsBuilder.LogTo(Console.WriteLine, new[] { RelationalEventId.CommandExecuted });
+        //optionsBuilder.LogTo(Console.WriteLine, new[] { RelationalEventId.CommandExecuted });
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

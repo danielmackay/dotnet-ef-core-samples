@@ -30,9 +30,6 @@ db.Products.AddRange(products);
 db.SaveChanges();
 
 var allProducts = db.Products.ToList();
-allProducts.ForEach(p => PrintProduct(p));
+allProducts.ForEach(Console.WriteLine);
 
 Console.ReadLine();
-
-static void PrintProduct(Product product) =>
-    Console.WriteLine($"Product - ID:{product.Id}, Name:{product.Name}, Price:{product.Price}");

@@ -6,6 +6,11 @@ public class Contact
     public string Name { get; set; } = null!;
     public Address? Address { get; set; }
     public ICollection<Note>? Notes { get; set; }
+
+    public override string ToString()
+    {
+        return $"Id: {Id}, Name: {Name}, Address: {Address}, Notes: {Notes}";
+    }
 }
 
 public class Address
@@ -14,9 +19,19 @@ public class Address
     public string? Line2 { get; set; }
     public string? City { get; set; }
     public string? State { get; set; }
+
+    public override string ToString()
+    {
+        return $"Line1: {Line1}, Line2: {Line2}, City: {City}, State: {State}";
+    }
 }
 
 public class Note
 {
     public string Text { get; set; } = null!;
+
+    public override string ToString()
+    {
+        return $"Text: {Text}";
+    }
 }

@@ -1,10 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-
-Console.WriteLine("DateOnly TimeOnly Sample");
+﻿Console.WriteLine("DateOnly TimeOnly Sample");
 
 using var db = new ApplicationDbContext();
-await db.Database.EnsureDeletedAsync();
-await db.Database.EnsureCreatedAsync();
+db.Database.EnsureDeleted();
+db.Database.EnsureCreated();
 
 var date = DateOnly.FromDateTime(DateTime.UtcNow);
 var time = TimeOnly.FromDateTime(DateTime.UtcNow);
@@ -16,10 +14,10 @@ var products = new List<Product>()
     new Product() { Name = "Product 3", DateCreated = date, TimeCreated = time }
 };
 
-await db.Products.AddRangeAsync(products);
-await db.SaveChangesAsync();
+db.Products.AddRange(products);
+db.SaveChanges();
 
-var allProducts = await db.Products.ToListAsync();
-allProducts.ForEach(p => Console.WriteLine($"Product {p.Name}"));
+var allProducts = db.Products.ToList();
+allProducts.ForEach(Console.WriteLine);
 
 Console.ReadLine();

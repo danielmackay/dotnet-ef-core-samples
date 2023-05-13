@@ -4,11 +4,11 @@ using TablePerHierarchy.Simple;
 Console.WriteLine("Table Per Hierarchy Sample");
 
 using var simpleDb = new SimpleDbContext();
-await simpleDb.Database.EnsureDeletedAsync();
-await simpleDb.Database.EnsureCreatedAsync();
+simpleDb.Database.EnsureDeleted();
+simpleDb.Database.EnsureCreated();
 
 using var complexDb = new ComplexDbContext();
-await complexDb.Database.EnsureDeletedAsync();
-await complexDb.Database.EnsureCreatedAsync();
+complexDb.Database.EnsureDeleted();
+complexDb.Database.EnsureCreated();
 
 Console.ReadLine();
