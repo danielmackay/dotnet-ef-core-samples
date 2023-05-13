@@ -1,6 +1,6 @@
 # Shadown Properties
 
-Create fields that existing in the DB, but not in your entity model
+Create fields that exist in the DB, but not in your entity model
 
 ## Model
 
@@ -45,5 +45,10 @@ erDiagram
 
 ## Use Cases
 
-- Create DB only fields that you do not want to expose to your entity model
+- Create DB-only fields that you do not want to expose to your entity model
 - Create FK fields that you do not want to expose to your entity model
+
+## Resources
+
+- [EF Core Docs | Shadow Properties](https://learn.microsoft.com/en-us/ef/core/modeling/shadow-properties)
+

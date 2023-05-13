@@ -10,3 +10,7 @@ Migration Bundles allow you to generate a stand-alone executable that can upgrad
 ## Usage
 
 Run `ApplyBundleToLocal.ps1` or `ApplyBundleToEnvironment.ps1`.
+
+## Resources
+
+- [EF Core Docs | Bundles](https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/applying?tabs=dotnet-core-cli#bundles)

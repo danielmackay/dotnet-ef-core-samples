@@ -55,3 +55,7 @@ erDiagram
 ## Guidance
 
 TPC provides similar control to TPT but with additional performance benefits.  It is recommended that you use TPC over TPT.
+
+## Resources
+
+- [EF Core Docs | TPC](https://learn.microsoft.com/en-us/ef/core/modeling/inheritance#table-per-concrete-type-configuration)

@@ -12,6 +12,6 @@ Store JSON in a column in a database.
 
 There are some restrictions as to the SQL operations that can be performed on the JSON column:
 
-- Can't project via `SelectMany()`  dsfsdf
+- Can't project via `SelectMany()` 
 
-This will improve in EF Core 8.
+This will improve in EF Core 8.0.
