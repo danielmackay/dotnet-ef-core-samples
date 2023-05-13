@@ -9,4 +9,4 @@ Query Filters allow you to apply global filters to all queries.  These can be di
 
 ## Resources
 
-- https://learn.microsoft.com/en-us/ef/core/querying/filters
+- [EF Core Docs | Query Filters](https://learn.microsoft.com/en-us/ef/core/querying/filters)

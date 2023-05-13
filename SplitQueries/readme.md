@@ -13,4 +13,4 @@ Queries with large numbers of joins can perform poorly.  If you have a query wit
 
 ## Resources
 
-- https://learn.microsoft.com/en-us/ef/core/querying/single-split-queries
+- [EF Core Docs | Split Queries](https://learn.microsoft.com/en-us/ef/core/querying/single-split-queries)

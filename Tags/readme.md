@@ -8,4 +8,4 @@ Tags give a label to your SQL queries which allows you to easily link between lo
 
 ## Resources
 
-- https://learn.microsoft.com/en-us/ef/core/querying/tags
+- [EF Core Docs | Tags](https://learn.microsoft.com/en-us/ef/core/querying/tags)
