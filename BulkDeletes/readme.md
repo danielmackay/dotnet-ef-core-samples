@@ -8,4 +8,4 @@ Bulk deletes are a new feature in EF Core 6.0.  They allow you to delete a large
 
 ## Resources
 
-- https://learn.microsoft.com/en-us/ef/core/saving/execute-insert-update-delete
+- [EF Core Docs | Executing Insert Update Delete](https://learn.microsoft.com/en-us/ef/core/saving/execute-insert-update-delete)

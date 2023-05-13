@@ -8,4 +8,4 @@ Sequences allow you to generate sequential values for a column in a database. Th
 
 ## Resources
 
-- https://learn.microsoft.com/en-us/ef/core/modeling/sequences
+- [EF Core Docs | Sequences](https://learn.microsoft.com/en-us/ef/core/modeling/sequences)

@@ -34,5 +34,5 @@ erDiagram
 
 ## Resources
 
-- https://learn.microsoft.com/en-us/ef/core/modeling/value-conversions?tabs=data-annotations
+- [EF Core Docs | Value Converters](https://learn.microsoft.com/en-us/ef/core/modeling/value-conversions?tabs=data-annotations)
 

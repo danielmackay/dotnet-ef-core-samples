@@ -13,4 +13,4 @@ Run `ApplyBundleToLocal.ps1` or `ApplyBundleToEnvironment.ps1`.
 
 ## Resources
 
-- https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/applying?tabs=dotnet-core-cli#bundles
+- [EF Core Docs | Bundles](https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/applying?tabs=dotnet-core-cli#bundles)

@@ -40,4 +40,4 @@ erDiagram
 
 ## Resources
 
-- https://learn.microsoft.com/en-us/ef/core/modeling/owned-entities
+- [EF Core Docs | Owned Entities](https://learn.microsoft.com/en-us/ef/core/modeling/owned-entities)

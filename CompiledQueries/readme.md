@@ -8,4 +8,4 @@ EF needs to compile queries before they are executed.  This happens internally, 
 
 ## Resources
 
-- https://learn.microsoft.com/en-us/ef/core/performance/advanced-performance-topics?tabs=with-di%2Cexpression-api-with-constant#compiled-queries
+- [EF Core Docs | Compiled Queries](https://learn.microsoft.com/en-us/ef/core/performance/advanced-performance-topics?tabs=with-di%2Cexpression-api-with-constant#compiled-queries)

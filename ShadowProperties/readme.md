@@ -50,5 +50,5 @@ erDiagram
 
 ## Resources
 
-- https://learn.microsoft.com/en-us/ef/core/modeling/shadow-properties
+- [EF Core Docs | Shadow Properties](https://learn.microsoft.com/en-us/ef/core/modeling/shadow-properties)
 

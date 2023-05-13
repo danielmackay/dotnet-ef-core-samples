@@ -67,4 +67,4 @@ TPT is not recommended unless you are constrained by external factors.
 
 ## Resources
 
-- https://learn.microsoft.com/en-us/ef/core/modeling/inheritance#table-per-type-configuration
+- [EF Core Docs | TPT](https://learn.microsoft.com/en-us/ef/core/modeling/inheritance#table-per-type-configuration)

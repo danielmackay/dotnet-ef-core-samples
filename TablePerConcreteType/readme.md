@@ -58,4 +58,4 @@ TPC provides similar control to TPT but with additional performance benefits.  I
 
 ## Resources
 
-- https://learn.microsoft.com/en-us/ef/core/modeling/inheritance#table-per-concrete-type-configuration
+- [EF Core Docs | TPC](https://learn.microsoft.com/en-us/ef/core/modeling/inheritance#table-per-concrete-type-configuration)

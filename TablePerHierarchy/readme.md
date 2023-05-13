@@ -55,5 +55,5 @@ TPH is usually fine for most applications and is a good default for a wide range
 
 ## Resources
 
-- https://learn.microsoft.com/en-us/ef/core/modeling/inheritance#table-per-hierarchy-and-discriminator-configuration
+- [EF Core Docs | TPH](https://learn.microsoft.com/en-us/ef/core/modeling/inheritance#table-per-hierarchy-and-discriminator-configuration)
 
