@@ -19,8 +19,6 @@ public class ApplicationDbContext : DbContext
             .StartsAt(100)
             .IncrementsBy(10);
 
-
-
         modelBuilder
             .Entity<Order>()
             .Property(o => o.OrderNumber)
