@@ -29,7 +29,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TablePerType", "TablePerTyp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TablePerConcreateType", "TablePerConcreteType\TablePerConcreateType.csproj", "{CA856515-767D-4A15-8D83-B02750895F6C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemporalTables", "TemporalTables\TemporalTables.csproj", "{29E7E773-CA11-411A-BF06-D1EF3FC02235}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TemporalTables", "TemporalTables\TemporalTables.csproj", "{29E7E773-CA11-411A-BF06-D1EF3FC02235}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BackingFields", "BackingFields\BackingFields.csproj", "{1022FE0D-B447-4DCE-9B69-75159A2A8BC2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -93,6 +95,10 @@ Global
 		{29E7E773-CA11-411A-BF06-D1EF3FC02235}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29E7E773-CA11-411A-BF06-D1EF3FC02235}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29E7E773-CA11-411A-BF06-D1EF3FC02235}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1022FE0D-B447-4DCE-9B69-75159A2A8BC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1022FE0D-B447-4DCE-9B69-75159A2A8BC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1022FE0D-B447-4DCE-9B69-75159A2A8BC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1022FE0D-B447-4DCE-9B69-75159A2A8BC2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
