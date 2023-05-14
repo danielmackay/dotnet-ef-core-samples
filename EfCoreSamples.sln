@@ -33,18 +33,20 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TemporalTables", "TemporalT
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BackingFields", "BackingFields\BackingFields.csproj", "{1022FE0D-B447-4DCE-9B69-75159A2A8BC2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShadowProperties", "ShadowProperties\ShadowProperties.csproj", "{1E2C42EE-3050-4302-836E-B86DE1911505}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShadowProperties", "ShadowProperties\ShadowProperties.csproj", "{1E2C42EE-3050-4302-836E-B86DE1911505}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValueConverters", "ValueConverters\ValueConverters.csproj", "{D655DCE1-25D9-4190-BFEA-6A62E5E7D13B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ValueConverters", "ValueConverters\ValueConverters.csproj", "{D655DCE1-25D9-4190-BFEA-6A62E5E7D13B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OwnedEntities", "OwnedEntities\OwnedEntities.csproj", "{22C4E46C-A083-4FDC-8AC9-A2056FC01205}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OwnedEntities", "OwnedEntities\OwnedEntities.csproj", "{22C4E46C-A083-4FDC-8AC9-A2056FC01205}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sequences", "Sequences\Sequences.csproj", "{DB5220A0-7E6F-43BA-B220-873BA467D921}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sequences", "Sequences\Sequences.csproj", "{DB5220A0-7E6F-43BA-B220-873BA467D921}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A8A0015C-81B6-447E-8ABD-490B73D3AD7C}"
 	ProjectSection(SolutionItems) = preProject
 		readme.md = readme.md
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeysetPagination", "KeysetPagination\KeysetPagination.csproj", "{F6BD67F3-9A06-47AE-B0EB-22A3D1E727C0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -128,6 +130,10 @@ Global
 		{DB5220A0-7E6F-43BA-B220-873BA467D921}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB5220A0-7E6F-43BA-B220-873BA467D921}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB5220A0-7E6F-43BA-B220-873BA467D921}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6BD67F3-9A06-47AE-B0EB-22A3D1E727C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6BD67F3-9A06-47AE-B0EB-22A3D1E727C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6BD67F3-9A06-47AE-B0EB-22A3D1E727C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6BD67F3-9A06-47AE-B0EB-22A3D1E727C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
