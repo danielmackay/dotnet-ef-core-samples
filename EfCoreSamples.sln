@@ -46,9 +46,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		readme.md = readme.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeysetPagination", "KeysetPagination\KeysetPagination.csproj", "{F6BD67F3-9A06-47AE-B0EB-22A3D1E727C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeysetPagination", "KeysetPagination\KeysetPagination.csproj", "{F6BD67F3-9A06-47AE-B0EB-22A3D1E727C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbContextPooling", "DbContextPooling\DbContextPooling.csproj", "{2851C5AC-F05A-4D3B-88CE-8B5E97A6FC41}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DbContextPooling", "DbContextPooling\DbContextPooling.csproj", "{2851C5AC-F05A-4D3B-88CE-8B5E97A6FC41}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BufferingAndStreaming", "BufferingAndStreaming\BufferingAndStreaming.csproj", "{10E8869E-EB5D-4440-A492-2A9585BCB831}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -140,6 +142,10 @@ Global
 		{2851C5AC-F05A-4D3B-88CE-8B5E97A6FC41}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2851C5AC-F05A-4D3B-88CE-8B5E97A6FC41}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2851C5AC-F05A-4D3B-88CE-8B5E97A6FC41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10E8869E-EB5D-4440-A492-2A9585BCB831}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10E8869E-EB5D-4440-A492-2A9585BCB831}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10E8869E-EB5D-4440-A492-2A9585BCB831}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10E8869E-EB5D-4440-A492-2A9585BCB831}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
