@@ -11,6 +11,7 @@ Each sample is a self-contained console application that can be run independentl
 ## Features
 
 - [Backing Fields](https://github.com/danielmackay/dotnet-ef-core-samples/tree/main/BackingFields)
+- [Buffering and Streaming](https://github.com/danielmackay/dotnet-ef-core-samples/tree/main/BufferingAndStreaming)
 - [Bulk Updates](https://github.com/danielmackay/dotnet-ef-core-samples/tree/main/BulkUpdates)
 - [Bulk Deletes](https://github.com/danielmackay/dotnet-ef-core-samples/tree/main/BulkDeletes)
 - [Compiled Queries](https://github.com/danielmackay/dotnet-ef-core-samples/tree/main/CompiledQueries)
