@@ -14,6 +14,7 @@ Each sample is a self-contained console application that can be run independentl
 - [Buffering and Streaming](https://github.com/danielmackay/dotnet-ef-core-samples/tree/main/BufferingAndStreaming)
 - [Bulk Updates](https://github.com/danielmackay/dotnet-ef-core-samples/tree/main/BulkUpdates)
 - [Bulk Deletes](https://github.com/danielmackay/dotnet-ef-core-samples/tree/main/BulkDeletes)
+- [Compiled Models](https://github.com/danielmackay/dotnet-ef-core-samples/tree/main/CompiledModels)
 - [Compiled Queries](https://github.com/danielmackay/dotnet-ef-core-samples/tree/main/CompiledQueries)
 - [Date Only](https://github.com/danielmackay/dotnet-ef-core-samples/tree/main/DateOnlyTimeOnly)
 - [DbContext Pooling](https://github.com/danielmackay/dotnet-ef-core-samples/tree/main/DbContextPooling)

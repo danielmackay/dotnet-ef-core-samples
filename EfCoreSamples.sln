@@ -50,7 +50,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeysetPagination", "KeysetP
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DbContextPooling", "DbContextPooling\DbContextPooling.csproj", "{2851C5AC-F05A-4D3B-88CE-8B5E97A6FC41}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BufferingAndStreaming", "BufferingAndStreaming\BufferingAndStreaming.csproj", "{10E8869E-EB5D-4440-A492-2A9585BCB831}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BufferingAndStreaming", "BufferingAndStreaming\BufferingAndStreaming.csproj", "{10E8869E-EB5D-4440-A492-2A9585BCB831}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompiledModels", "CompiledModels\CompiledModels.csproj", "{01B7FAFB-DA74-4259-B2C3-4DAC9154D8E8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -146,6 +148,10 @@ Global
 		{10E8869E-EB5D-4440-A492-2A9585BCB831}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10E8869E-EB5D-4440-A492-2A9585BCB831}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10E8869E-EB5D-4440-A492-2A9585BCB831}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01B7FAFB-DA74-4259-B2C3-4DAC9154D8E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01B7FAFB-DA74-4259-B2C3-4DAC9154D8E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01B7FAFB-DA74-4259-B2C3-4DAC9154D8E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01B7FAFB-DA74-4259-B2C3-4DAC9154D8E8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
