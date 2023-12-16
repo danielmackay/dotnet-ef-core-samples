@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using TemporalTables;
 
 Console.WriteLine("Temporal Tables Sample");
 

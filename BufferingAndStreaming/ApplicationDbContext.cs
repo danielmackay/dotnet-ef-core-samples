@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 
+namespace BufferingAndStreaming;
+
 public class ApplicationDbContext : DbContext
 {
     public DbSet<Product> Products { get; set; }

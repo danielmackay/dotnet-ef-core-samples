@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Tags;
 
 Console.WriteLine("Tags Sample");
 

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using QueryFilters;
 
 Console.WriteLine("Query Filter Sample");
 

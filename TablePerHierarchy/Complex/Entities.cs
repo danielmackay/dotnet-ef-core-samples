@@ -1,4 +1,4 @@
-﻿namespace TablePerHierarchy;
+﻿namespace TablePerHierarchy.Complex;
 
 public abstract class Animal
 {

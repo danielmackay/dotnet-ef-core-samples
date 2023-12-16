@@ -1,4 +1,6 @@
-﻿public class Product
+﻿namespace BufferingAndStreaming;
+
+public class Product
 {
     public int Id { get; set; }
     public required string Name { get; set; }

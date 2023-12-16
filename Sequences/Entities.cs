@@ -1,4 +1,6 @@
-﻿public class Order
+﻿namespace Sequences;
+
+public class Order
 {
     public int Id { get; set; }
     public int OrderNumber { get; set; }

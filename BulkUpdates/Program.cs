@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using BulkUpdates;
+using Microsoft.EntityFrameworkCore;
 
 Console.WriteLine("Bulk Updates Sample");
 

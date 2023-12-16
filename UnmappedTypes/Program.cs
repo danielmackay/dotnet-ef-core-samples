@@ -1,5 +1,5 @@
-﻿using JsonColumns;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using UnmappedTypes;
 
 Console.WriteLine("Unmapped Types Sample");
 

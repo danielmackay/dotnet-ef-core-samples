@@ -1,4 +1,6 @@
-﻿Console.WriteLine("Owned Entities Sample");
+﻿using Sequences;
+
+Console.WriteLine("Owned Entities Sample");
 
 using var db = new ApplicationDbContext();
 db.Database.EnsureDeleted();
