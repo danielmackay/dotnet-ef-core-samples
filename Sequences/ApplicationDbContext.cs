@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
+namespace Sequences;
+
 public class ApplicationDbContext : DbContext
 {
     public DbSet<Order> Orders { get; set; }

@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
+namespace TemporalTables;
+
 public class ApplicationDbContext : DbContext
 {
     public DbSet<Product> Products { get; set; }

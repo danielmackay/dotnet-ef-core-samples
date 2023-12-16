@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using BulkDeletes;
+using Microsoft.EntityFrameworkCore;
 
 Console.WriteLine("Bulk Deletes Sample");
 

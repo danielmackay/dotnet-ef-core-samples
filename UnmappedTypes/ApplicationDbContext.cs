@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 
-namespace JsonColumns;
+namespace UnmappedTypes;
 
 public class ApplicationDbContext : DbContext
 {

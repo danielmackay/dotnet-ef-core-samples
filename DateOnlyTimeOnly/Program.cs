@@ -1,4 +1,6 @@
-﻿Console.WriteLine("DateOnly TimeOnly Sample");
+﻿using DateOnlyTimeOnly;
+
+Console.WriteLine("DateOnly TimeOnly Sample");
 
 using var db = new ApplicationDbContext();
 db.Database.EnsureDeleted();

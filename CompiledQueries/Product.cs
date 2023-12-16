@@ -1,4 +1,6 @@
-﻿public class Product
+﻿namespace CompiledQueries;
+
+public class Product
 {
     public int Id { get; set; }
     public string Name { get; set; } = null!;

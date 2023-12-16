@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
+namespace OwnedEntities;
+
 public class ApplicationDbContext : DbContext
 {
     public DbSet<Contact> Contacts { get; set; }

@@ -1,4 +1,6 @@
-﻿Console.WriteLine("Keyset Pagination Sample");
+﻿using KeysetPagination;
+
+Console.WriteLine("Keyset Pagination Sample");
 
 using var db = new ApplicationDbContext();
 db.Database.EnsureDeleted();

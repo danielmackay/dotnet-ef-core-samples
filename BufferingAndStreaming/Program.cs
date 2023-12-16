@@ -1,4 +1,6 @@
-﻿Console.WriteLine("Buffering and Streaming Sample");
+﻿using BufferingAndStreaming;
+
+Console.WriteLine("Buffering and Streaming Sample");
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddSwaggerGen();

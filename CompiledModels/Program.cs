@@ -1,4 +1,6 @@
-﻿Console.WriteLine("Compiled Models Sample");
+﻿using CompiledModels;
+
+Console.WriteLine("Compiled Models Sample");
 
 using var db = new ApplicationDbContext();
 db.Database.EnsureDeleted();

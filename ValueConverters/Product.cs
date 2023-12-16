@@ -1,4 +1,6 @@
-﻿public class Product
+﻿namespace ValueConverters;
+
+public class Product
 {
     public required ProductId Id { get; set; }
     public required string Name { get; set; }

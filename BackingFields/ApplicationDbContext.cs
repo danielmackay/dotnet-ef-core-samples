@@ -1,8 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
+namespace BackingFields;
+
 public class ApplicationDbContext : DbContext
 {
-    public DbSet<Product> Products { get; set; }
+    public DbSet<Product> Products { get; set; } = null!;
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {

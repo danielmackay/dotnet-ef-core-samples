@@ -1,4 +1,6 @@
-﻿Console.WriteLine("Value Converters Sample");
+﻿using ValueConverters;
+
+Console.WriteLine("Value Converters Sample");
 
 using var db = new ApplicationDbContext();
 db.Database.EnsureDeleted();

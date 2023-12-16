@@ -1,6 +1,8 @@
 ﻿using CompiledModels.CompiledModels;
 using Microsoft.EntityFrameworkCore;
 
+namespace CompiledModels;
+
 public class ApplicationDbContext : DbContext
 {
     public DbSet<Product> Products { get; set; }

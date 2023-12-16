@@ -1,4 +1,6 @@
-﻿Console.WriteLine("Backing Fields Sample");
+﻿using BackingFields;
+
+Console.WriteLine("Backing Fields Sample");
 
 using var db = new ApplicationDbContext();
 db.Database.EnsureDeleted();

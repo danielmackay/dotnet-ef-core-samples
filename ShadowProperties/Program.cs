@@ -1,4 +1,6 @@
-﻿Console.WriteLine("Shadow Properties Sample");
+﻿using ShadowProperties;
+
+Console.WriteLine("Shadow Properties Sample");
 
 using var db = new ApplicationDbContext();
 db.Database.EnsureDeleted();
