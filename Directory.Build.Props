@@ -1,5 +1,8 @@
 <Project>
-  <PropertyGroup>
-    <TreatWarningsAsErrors Condition="'$(Configuration)' != 'Debug'">true</TreatWarningsAsErrors>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TreatWarningsAsErrors Condition="'$(Configuration)' != 'Debug'">true</TreatWarningsAsErrors>
+    </PropertyGroup>
+    <ItemGroup Condition="'$(MSBuildProjectName)' != 'Common'">
+        <ProjectReference Include="..\Common\Common.csproj"/>
+    </ItemGroup>
 </Project>

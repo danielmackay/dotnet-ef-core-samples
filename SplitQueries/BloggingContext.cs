@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Common;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 
@@ -22,8 +23,7 @@ public class BloggingContext : DbContext
         var splitQueryBehavior = _useSplitQueries ? QuerySplittingBehavior.SplitQuery : QuerySplittingBehavior.SingleQuery;
 
         optionsBuilder
-            .UseSqlServer(
-                @"Server=(localdb)\mssqllocaldb;Database=SplitQueries;Trusted_Connection=True",
+            .UseSqlServer(DbConnectionFactory.Create("SplitQueries"),
                 options => options.UseQuerySplittingBehavior(splitQueryBehavior));
 
         optionsBuilder.LogTo(Console.WriteLine, new[] { RelationalEventId.CommandExecuted });
