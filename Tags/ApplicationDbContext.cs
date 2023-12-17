@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Common;
+using Microsoft.EntityFrameworkCore;
 
 namespace Tags;
 
@@ -9,8 +10,7 @@ public class ApplicationDbContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder
-            .UseSqlServer(
-                @"Server=(localdb)\mssqllocaldb;Database=Tags;Trusted_Connection=True");
+            .UseSqlServer(DbConnectionFactory.Create("Tags"));
 
         //optionsBuilder.LogTo(Console.WriteLine, new[] { RelationalEventId.CommandExecuted });
     }

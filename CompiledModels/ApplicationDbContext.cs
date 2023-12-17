@@ -1,4 +1,5 @@
-﻿using CompiledModels.CompiledModels;
+﻿using Common;
+using CompiledModels.CompiledModels;
 using Microsoft.EntityFrameworkCore;
 
 namespace CompiledModels;
@@ -10,8 +11,7 @@ public class ApplicationDbContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder
-            .UseSqlServer(
-                @"Server=(localdb)\mssqllocaldb;Database=CompiledModels;Trusted_Connection=True")
+            .UseSqlServer(DbConnectionFactory.Create("CompiledModels"))
             .UseModel(ApplicationDbContextModel.Instance);
 
         //optionsBuilder.LogTo(Console.WriteLine, new[] { RelationalEventId.CommandExecuted });

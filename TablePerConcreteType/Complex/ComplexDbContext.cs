@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Common;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 
 namespace TablePerConcreateType.Complex;
@@ -14,8 +15,7 @@ public class ComplexDbContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder
-            .UseSqlServer(
-                @"Server=(localdb)\mssqllocaldb;Database=ComplexTpc;Trusted_Connection=True");
+            .UseSqlServer(DbConnectionFactory.Create("ComplexTpc"));
 
         optionsBuilder.LogTo(Console.WriteLine, new[] { RelationalEventId.CommandExecuted });
     }

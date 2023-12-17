@@ -7,7 +7,7 @@ public class Product
     public decimal Price { get; set; }
 
     // As there is no FK, this will create a shadow property for the relationship
-    public Customer Customer { get; set; }
+    public required Customer Customer { get; set; }
 
     public override string ToString()
     {

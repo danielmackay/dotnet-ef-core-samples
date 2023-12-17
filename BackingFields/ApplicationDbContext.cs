@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Common;
+using Microsoft.EntityFrameworkCore;
 
 namespace BackingFields;
 
@@ -9,8 +10,7 @@ public class ApplicationDbContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder
-            .UseSqlServer(
-                @"Server=(localdb)\mssqllocaldb;Database=BackingFields;Trusted_Connection=True");
+            .UseSqlServer(DbConnectionFactory.Create("BackingFields"));
 
         //optionsBuilder.LogTo(Console.WriteLine, new[] { RelationalEventId.CommandExecuted });
     }

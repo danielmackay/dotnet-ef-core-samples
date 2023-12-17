@@ -1,4 +1,5 @@
-﻿using DbContextPooling;
+﻿using Common;
+using DbContextPooling;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -8,7 +9,7 @@ Console.WriteLine("DbContext Pooling Sample");
 Console.WriteLine("Pooling WITHOUT Dependency Injection");
 
 var options = new DbContextOptionsBuilder<ApplicationDbContext>()
-    .UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=DbContextPooling;Trusted_Connection=True");
+        .UseSqlServer(DbConnectionFactory.Create("DbContextPooling"));
 
 var factory = new PooledDbContextFactory<ApplicationDbContext>(options.Options);
 
@@ -20,7 +21,7 @@ Console.WriteLine("Pooling WITH Dependency Injection");
 
 var services = new ServiceCollection();
 services.AddDbContextPool<ApplicationDbContext>(
-    o => o.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=DbContextPooling;Trusted_Connection=True"));
+    o => o.UseSqlServer(DbConnectionFactory.Create("DbContextPooling")));
 
 var sp = services.BuildServiceProvider();
 

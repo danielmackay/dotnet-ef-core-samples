@@ -3,8 +3,8 @@
 public class Contact
 {
     public int Id { get; set; }
-    public string Name { get; set; } = null!;
-    public Address? Address { get; set; }
+    public string Name { get; init; } = null!;
+    public required Address Address { get; set; } = null!;
     public ICollection<Note>? Notes { get; set; }
 
     public override string ToString()

@@ -94,13 +94,13 @@ var blogs = new List<Blog>()
 db.Blogs.AddRange(blogs);
 db.SaveChanges();
 
-db.Posts
+_ = db.Posts
     .Include(b => b.Blogs)
     .Include(p => p.Tags)
     .TagWith("Default Single Query")
     .ToList();
 
-db.Posts
+_ = db.Posts
     .AsSplitQuery()
     .Include(b => b.Blogs)
     .Include(p => p.Tags)
@@ -109,13 +109,13 @@ db.Posts
 
 using var db2 = new BloggingContext(true);
 
-db.Posts
+_ = db.Posts
     .Include(b => b.Blogs)
     .Include(p => p.Tags)
     .TagWith("Default Split Query")
     .ToList();
 
-db.Posts
+_ = db.Posts
     .AsSingleQuery()
     .Include(b => b.Blogs)
     .Include(p => p.Tags)
