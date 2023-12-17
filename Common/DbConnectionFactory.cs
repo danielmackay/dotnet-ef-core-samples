@@ -8,11 +8,15 @@ public static class DbConnectionFactory
     {
         var builder = new SqlConnectionStringBuilder
         {
-            DataSource = "localhost:1433",
+            DataSource = "localhost",
             InitialCatalog = databaseName,
-            IntegratedSecurity = true,
+            UserID = "sa",
+            Password = "yourStrong(!)Password",
+            TrustServerCertificate = true,
             MultipleActiveResultSets = true
         };
+
+        Console.WriteLine($"Generated connection string: {builder.ConnectionString}");
 
         return builder.ConnectionString;
     }
