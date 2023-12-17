@@ -3,6 +3,6 @@
         <TreatWarningsAsErrors Condition="'$(Configuration)' != 'Debug'">true</TreatWarningsAsErrors>
     </PropertyGroup>
     <ItemGroup Condition="'$(MSBuildProjectName)' != 'Common'">
-        <ProjectReference Include="..\Common\Common.csproj"/>
+        <ProjectReference Include="../Common/Common.csproj"/>
     </ItemGroup>
 </Project>
