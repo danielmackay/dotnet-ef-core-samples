@@ -58,6 +58,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComplexTypes", "ComplexTypes\ComplexTypes.csproj", "{EC4684EA-2AA5-4AE3-B944-2740288DF141}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrimativeCollections", "PrimativeCollections\PrimativeCollections.csproj", "{DA6D66DA-8CBB-43F8-8A95-EEB150CF3A9A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -164,6 +166,10 @@ Global
 		{EC4684EA-2AA5-4AE3-B944-2740288DF141}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC4684EA-2AA5-4AE3-B944-2740288DF141}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC4684EA-2AA5-4AE3-B944-2740288DF141}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA6D66DA-8CBB-43F8-8A95-EEB150CF3A9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA6D66DA-8CBB-43F8-8A95-EEB150CF3A9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA6D66DA-8CBB-43F8-8A95-EEB150CF3A9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA6D66DA-8CBB-43F8-8A95-EEB150CF3A9A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
