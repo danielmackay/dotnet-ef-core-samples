@@ -56,6 +56,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompiledModels", "CompiledM
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{7047FA95-2543-4221-A749-35AE5E92B716}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComplexTypes", "ComplexTypes\ComplexTypes.csproj", "{EC4684EA-2AA5-4AE3-B944-2740288DF141}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -158,6 +160,10 @@ Global
 		{7047FA95-2543-4221-A749-35AE5E92B716}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7047FA95-2543-4221-A749-35AE5E92B716}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7047FA95-2543-4221-A749-35AE5E92B716}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC4684EA-2AA5-4AE3-B944-2740288DF141}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC4684EA-2AA5-4AE3-B944-2740288DF141}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC4684EA-2AA5-4AE3-B944-2740288DF141}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC4684EA-2AA5-4AE3-B944-2740288DF141}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
