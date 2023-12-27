@@ -1,12 +1,11 @@
-# Query Filters
+# Primitive Collections
 
-Query Filters allow you to apply global filters to all queries.  These can be disabled on a per-query basis if needed.
+Primitive Collections allow us to store a list of primitive values in a column WITHOUT having to create a separate table.  EF Core will automatically do this for any primitive collections on our entities.  This doesn't require any special configuration.
 
 ## Use Cases
 
-- Soft Delete - filter out deleted entities
-- Multi-tenancy - filter out entities that belong to other tenants
+- Keep DB Schema clean without having to create unneeded tables for primitive collections
 
 ## Resources
 
-- [EF Core Docs | Query Filters](https://learn.microsoft.com/en-us/ef/core/querying/filters)
+- [EF Core Docs | Primitive Collections](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-8.0/whatsnew#primitive-collections)
