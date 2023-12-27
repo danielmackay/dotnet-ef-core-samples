@@ -5,18 +5,15 @@ namespace PrimitiveCollections;
 
 public class ApplicationDbContext : DbContext
 {
-    public DbSet<Product> Products { get; set; }
+    public DbSet<Product> Products => Set<Product>();
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder
-            .UseSqlServer(DbConnectionFactory.Create("QueryFilters"));
-
-        //optionsBuilder.LogTo(Console.WriteLine, new[] { RelationalEventId.CommandExecuted });
+            .UseSqlServer(DbConnectionFactory.Create("PrimitiveCollections"));
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Product>().HasQueryFilter(p => !p.IsDeleted);
     }
 }

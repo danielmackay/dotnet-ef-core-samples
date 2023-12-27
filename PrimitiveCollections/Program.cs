@@ -1,7 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
-using PrimitiveCollections;
+﻿using PrimitiveCollections;
 
-Console.WriteLine("Query Filter Sample");
+Console.WriteLine("Primitive Collections Sample");
 
 using var db = new ApplicationDbContext();
 db.Database.EnsureDeleted();
@@ -9,27 +8,16 @@ db.Database.EnsureCreated();
 
 var products = new List<Product>()
 {
-    new Product() { Name = "Product 1" },
-    new Product() { Name = "Product 2" },
-    new Product() { Name = "Product 3" },
-    new Product() { Name = "Product 4" },
-    new Product() { Name = "Product 5" },
-    new Product() { Name = "Product 6", IsDeleted = true },
-    new Product() { Name = "Product 7", IsDeleted = true },
-    new Product() { Name = "Product 8", IsDeleted = true },
-    new Product() { Name = "Product 9" , IsDeleted = true},
-    new Product() { Name = "Product 10" , IsDeleted = true}
+    new() { Name = "Product 1", Colors = [Color.Black, Color.White, Color.Red]},
+    new() { Name = "Product 2", Colors = [Color.Blue, Color.Brown, Color.Green]},
+    new() { Name = "Product 3", Colors = [Color.Orange, Color.Purple, Color.Yellow]},
 };
 
 db.Products.AddRange(products);
 db.SaveChanges();
 
-var visibleProducts = db.Products.ToList();
-Console.WriteLine("Visible products");
-visibleProducts.ForEach(Console.WriteLine);
-
-var allProducts = db.Products.IgnoreQueryFilters().ToList();
-Console.WriteLine($"All products (including deleted)");
+var allProducts = db.Products.ToList();
+Console.WriteLine("All Products");
 allProducts.ForEach(Console.WriteLine);
 
 Console.ReadLine();
