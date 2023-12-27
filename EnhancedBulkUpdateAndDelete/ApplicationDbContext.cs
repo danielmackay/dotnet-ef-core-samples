@@ -1,7 +1,7 @@
 ﻿using Common;
 using Microsoft.EntityFrameworkCore;
 
-namespace EnhancedJsonColumns;
+namespace EnhancedBulkUpdateAndDelete;
 
 public class ApplicationDbContext : DbContext
 {
@@ -10,11 +10,11 @@ public class ApplicationDbContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder
-            .UseSqlServer(DbConnectionFactory.Create("EnhancedJsonColumns"));
+            .UseSqlServer(DbConnectionFactory.Create("EnhancedBulkUpdateAndDelete"));
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Product>().OwnsMany(e => e.Colors, builder => builder.ToJson());
+        modelBuilder.Entity<Product>().OwnsOne(p => p.Color);
     }
 }
