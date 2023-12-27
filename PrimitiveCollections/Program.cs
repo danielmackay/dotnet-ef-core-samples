@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using PrimativeCollections;
+using PrimitiveCollections;
 
 Console.WriteLine("Query Filter Sample");
 

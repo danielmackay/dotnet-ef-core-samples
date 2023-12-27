@@ -1,7 +1,7 @@
 ﻿using Common;
 using Microsoft.EntityFrameworkCore;
 
-namespace PrimativeCollections;
+namespace PrimitiveCollections;
 
 public class ApplicationDbContext : DbContext
 {

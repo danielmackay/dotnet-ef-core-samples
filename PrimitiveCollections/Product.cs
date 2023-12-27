@@ -1,4 +1,4 @@
-﻿namespace PrimativeCollections;
+﻿namespace PrimitiveCollections;
 
 public class Product
 {
