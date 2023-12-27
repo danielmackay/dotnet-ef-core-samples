@@ -1,7 +1,7 @@
 ﻿using EnhancedJsonColumns;
 using Microsoft.EntityFrameworkCore;
 
-Console.WriteLine("Enhanced JSON Columns Sample");
+Console.WriteLine("Enhanced Bulk Update and Delete Sample");
 
 using var db = new ApplicationDbContext();
 db.Database.EnsureDeleted();

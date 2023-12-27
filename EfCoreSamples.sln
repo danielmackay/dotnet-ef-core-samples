@@ -62,7 +62,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrimitiveCollections", "Pri
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnhancedJsonColumns", "EnhancedJsonColumns\EnhancedJsonColumns.csproj", "{EB8182A7-259B-4EE3-A00D-FEB6E3C1C0E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnhancedBulkUpdatedAndDelete", "EnhancedBulkUpdatedAndDelete\EnhancedBulkUpdatedAndDelete.csproj", "{89031EE1-2782-404B-B06E-FCFEE98BAC1F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnhancedBulkUpdateAndDelete", "EnhancedBulkUpdateAndDelete\EnhancedBulkUpdateAndDelete.csproj", "{89031EE1-2782-404B-B06E-FCFEE98BAC1F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
