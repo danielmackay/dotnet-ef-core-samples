@@ -1,12 +1,11 @@
-# Enhanced JSON Columns
+# Enhanced Bulk Update and Delete
 
-Support for JSON columns was introduced in EF Core 7. You could query and update JSON columns. But there were some limitations. EF Core 8 adds some more advanced JSON capabilities.  We can now query JSON collections of complex objects.
+EF Core has always required that Bulk Updates and Deletes be performed on a single table.  However, when using Owned Entities, the data is in a single table, but EF Core still wouldn't allow you to perform a Bulk Update or Delete.
 
 ## Use Cases
 
-- Use JSON columns to store complex objects/arrays
-- Removes previous limitations of JSON queries
+- Bulk Update and Delete on Owned Entities
 
 ## Resources
 
-- [EF Core Docs | Enhanced JSON Columns](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-8.0/whatsnew#enhancements-to-json-column-mapping)
+- [EF Core Docs | Enhanced Bulk Updates and Deletes](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-8.0/whatsnew#better-executeupdate-and-executedelete)
