@@ -60,6 +60,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComplexTypes", "ComplexType
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrimitiveCollections", "PrimitiveCollections\PrimitiveCollections.csproj", "{DA6D66DA-8CBB-43F8-8A95-EEB150CF3A9A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnhancedJsonColumns", "EnhancedJsonColumns\EnhancedJsonColumns.csproj", "{EB8182A7-259B-4EE3-A00D-FEB6E3C1C0E2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -170,6 +172,10 @@ Global
 		{DA6D66DA-8CBB-43F8-8A95-EEB150CF3A9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA6D66DA-8CBB-43F8-8A95-EEB150CF3A9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA6D66DA-8CBB-43F8-8A95-EEB150CF3A9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB8182A7-259B-4EE3-A00D-FEB6E3C1C0E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB8182A7-259B-4EE3-A00D-FEB6E3C1C0E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB8182A7-259B-4EE3-A00D-FEB6E3C1C0E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB8182A7-259B-4EE3-A00D-FEB6E3C1C0E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
