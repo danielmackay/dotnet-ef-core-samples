@@ -1,20 +1,20 @@
 ﻿using Common;
 using Microsoft.EntityFrameworkCore;
 
-namespace EnhancedJsonColumns;
+namespace SentinelValues;
 
 public class ApplicationDbContext : DbContext
 {
-    public DbSet<Product> Products => Set<Product>();
+    public DbSet<Account> Accounts => Set<Account>();
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder
-            .UseSqlServer(DbConnectionFactory.Create("EnhancedJsonColumns"));
+            .UseSqlServer(DbConnectionFactory.Create("SentinelValues"));
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Product>().OwnsMany(e => e.Colors, builder => builder.ToJson());
+        modelBuilder.Entity<Account>().Property(a => a.Credits).HasDefaultValue(10).HasSentinel(-1);
     }
 }

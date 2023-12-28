@@ -1,12 +1,15 @@
-# Enhanced JSON Columns
+# Sentinel Values and Database Defaults
 
-Support for JSON columns was introduced in EF Core 7. You could query and update JSON columns. But there were some limitations. EF Core 8 adds some more advanced JSON capabilities.  We can now query JSON collections of complex objects.
+EF Core can configure SQL Server to use Database defaults.  For this to work, EF needs to know when NOT to send a value to the DB so that the DB can use the default value.  It does this by using the `default` value of the .NET CLR type  This works well for reference types, but not value types.
+
+However, in some cases the CLR default value is a value valid to insert.  For example, a default makes sense when creating a record.  But what if you want to create a record with the default CLR value?  Previously you couldn't.  This is where Sentinel Values come in.
 
 ## Use Cases
 
-- Use JSON columns to store complex objects/arrays
-- Removes previous limitations of JSON queries
+- Inserting rows with default CLR values when the DB has a default value
+- Correct EF Core behavior when using boolean `default` and `enum` default values
+- Overriding defaults for other value types such as `int`, `DateTime`,  etc.
 
 ## Resources
 
-- [EF Core Docs | Enhanced JSON Columns](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-8.0/whatsnew#enhancements-to-json-column-mapping)
+- [EF Core Docs | Sentinel Values and Database Defaults](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-8.0/whatsnew#database-defaults-for-enums)
