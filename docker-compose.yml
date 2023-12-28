@@ -5,11 +5,9 @@ services:
     environment:
       ACCEPT_EULA: "Y"
       SA_PASSWORD: "yourStrong(!)Password"
-    # mssql server image isn't available for arm64 architecture, so we use azure-sql instead
-    image: mcr.microsoft.com/azure-sql-edge:latest
     #container_name: "ef-core-samples"
-    # If you really want to use MS SQL Server, uncomment the following line
-    #image: mcr.microsoft.com/mssql/server
+    # NOTE: can't use azure-sql-edge as it doesn't support .NET CLR.
+    image: mcr.microsoft.com/mssql/server
     ports:
       # {{exposed}}:{{internal}} - you'll need to contain the exposed ports if you have more than one DB server running at a time
       - 1433:1433

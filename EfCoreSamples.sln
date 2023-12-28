@@ -64,6 +64,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnhancedJsonColumns", "Enha
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnhancedBulkUpdateAndDelete", "EnhancedBulkUpdateAndDelete\EnhancedBulkUpdateAndDelete.csproj", "{89031EE1-2782-404B-B06E-FCFEE98BAC1F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HierarchyIds", "HierarchyIds\HierarchyIds.csproj", "{B18EB327-BF8D-4D61-B9F1-8392A9678F55}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -182,6 +184,10 @@ Global
 		{89031EE1-2782-404B-B06E-FCFEE98BAC1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89031EE1-2782-404B-B06E-FCFEE98BAC1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89031EE1-2782-404B-B06E-FCFEE98BAC1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B18EB327-BF8D-4D61-B9F1-8392A9678F55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B18EB327-BF8D-4D61-B9F1-8392A9678F55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B18EB327-BF8D-4D61-B9F1-8392A9678F55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B18EB327-BF8D-4D61-B9F1-8392A9678F55}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
