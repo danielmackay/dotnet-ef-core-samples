@@ -6,6 +6,8 @@ A collection of the latest features of EF Core.  These are the more interesting 
 
 ## Usage
 
+FOO
+
 Each sample is a self-contained console application that can be run independently to explore and learn.
 
 ## Features
