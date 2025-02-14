@@ -8,7 +8,7 @@ public static class DbConnectionFactory
     {
         var builder = new SqlConnectionStringBuilder
         {
-            DataSource = "localhost",
+            DataSource = "127.0.0.1,1700",
             InitialCatalog = databaseName,
             UserID = "sa",
             Password = "yourStrong(!)Password",
