@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Common;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 
 namespace TablePerHierarchy.Simple;
@@ -12,8 +13,8 @@ public class SimpleDbContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder
-            .UseSqlServer(
-                @"Server=(localdb)\mssqllocaldb;Database=SimpleTph;Trusted_Connection=True");
+            .UseSqlServer(DbConnectionFactory.Create("SimpleTph"));
+
 
         optionsBuilder.LogTo(Console.WriteLine, new[] { RelationalEventId.CommandExecuted });
     }
