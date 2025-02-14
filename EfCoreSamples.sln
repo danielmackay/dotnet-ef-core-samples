@@ -44,6 +44,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A8A0015C-81B6-447E-8ABD-490B73D3AD7C}"
 	ProjectSection(SolutionItems) = preProject
 		readme.md = readme.md
+		docker-compose.yml = docker-compose.yml
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeysetPagination", "KeysetPagination\KeysetPagination.csproj", "{F6BD67F3-9A06-47AE-B0EB-22A3D1E727C0}"
