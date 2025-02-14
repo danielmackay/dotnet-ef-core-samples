@@ -1,13 +1,16 @@
 <Project>
-    <PropertyGroup>
-        <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
-    </PropertyGroup>
-    <ItemGroup>
-        <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0"/>
-        <PackageVersion Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
-        <PackageVersion Include="Swashbuckle.AspNetCore" Version="6.5.0" />
-        <PackageVersion Include="Microsoft.Data.SqlClient" Version="5.1.1" />
-        <PackageVersion Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.0" />
-        <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer.HierarchyId" Version="8.0.0" />
-    </ItemGroup>
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0" />
+    <PackageVersion Include="Microsoft.Extensions.Hosting" Version="9.0.2" />
+    <PackageVersion Include="Swashbuckle.AspNetCore" Version="7.2.0" />
+    <PackageVersion Include="Microsoft.Data.SqlClient" Version="6.0.1" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageVersion>
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer.HierarchyId" Version="9.0.2" />
+  </ItemGroup>
 </Project>
