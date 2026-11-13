@@ -11,29 +11,92 @@ A collection of the latest features of EF Core.  These are the more interesting 
 
 Each sample is a self-contained console application that can be run independently to explore and learn.
 
-## Features
+## All Features
 
-- [Backing Fields](https://github.com/danielmackay/dotnet-ef-core-samples/tree/main/BackingFields)
-- [Buffering and Streaming](https://github.com/danielmackay/dotnet-ef-core-samples/tree/main/BufferingAndStreaming)
-- [Bulk Updates](https://github.com/danielmackay/dotnet-ef-core-samples/tree/main/BulkUpdates)
-- [Bulk Deletes](https://github.com/danielmackay/dotnet-ef-core-samples/tree/main/BulkDeletes)
-- [Compiled Models](https://github.com/danielmackay/dotnet-ef-core-samples/tree/main/CompiledModels)
-- [Compiled Queries](https://github.com/danielmackay/dotnet-ef-core-samples/tree/main/CompiledQueries)
-- [Date Only](https://github.com/danielmackay/dotnet-ef-core-samples/tree/main/DateOnlyTimeOnly)
-- [DbContext Pooling](https://github.com/danielmackay/dotnet-ef-core-samples/tree/main/DbContextPooling)
-- [Time Only](https://github.com/danielmackay/dotnet-ef-core-samples/tree/main/DateOnlyTimeOnly)
-- [JSON Columns](https://github.com/danielmackay/dotnet-ef-core-samples/tree/main/JsonColumns)
-- [Keyset Pagination](https://github.com/danielmackay/dotnet-ef-core-samples/tree/main/KeysetPagination)
-- [Migration Bundles](https://github.com/danielmackay/dotnet-ef-core-samples/tree/main/MigrationBundles)
-- [Owned Entities](https://github.com/danielmackay/dotnet-ef-core-samples/tree/main/OwnedEntities)
-- [Sequences](https://github.com/danielmackay/dotnet-ef-core-samples/tree/main/Sequences)
-- [Shadow Properties](https://github.com/danielmackay/dotnet-ef-core-samples/tree/main/ShadowProperties)
-- [Query Filters](https://github.com/danielmackay/dotnet-ef-core-samples/tree/main/QueryFilters)
-- [Split Queries](https://github.com/danielmackay/dotnet-ef-core-samples/tree/main/SplitQueries)
-- [Table per Concrete Type](https://github.com/danielmackay/dotnet-ef-core-samples/tree/main/TablePerConcreteType)
-- [Table per Hierarchy](https://github.com/danielmackay/dotnet-ef-core-samples/tree/main/TablePerHierarchy)
-- [Table per Type](https://github.com/danielmackay/dotnet-ef-core-samples/tree/main/TablePerType)
-- [Tags](https://github.com/danielmackay/dotnet-ef-core-samples/tree/main/Tags)
-- [Temporal Tables](https://github.com/danielmackay/dotnet-ef-core-samples/tree/main/TemporalTables)
-- [Unmapped Types](https://github.com/danielmackay/dotnet-ef-core-samples/tree/main/UnmappedTypes)
-- [Value Converters](https://github.com/danielmackay/dotnet-ef-core-samples/tree/main/ValueConverters)
+- [Backing Fields](BackingFields)
+- [Buffering and Streaming](BufferingAndStreaming)
+- [Bulk Deletes](BulkDeletes)
+- [Bulk Updates](BulkUpdates)
+- [Compiled Models](CompiledModels)
+- [Compiled Queries](CompiledQueries)
+- [Complex Types](ComplexTypes)
+- [DateOnly and TimeOnly](DateOnlyTimeOnly)
+- [DbContext Pooling](DbContextPooling)
+- [Enhanced Bulk Update and Delete](EnhancedBulkUpdateAndDelete)
+- [Enhanced JSON Columns](EnhancedJsonColumns)
+- [Hierarchy IDs](HierarchyIds)
+- [JSON Columns](JsonColumns)
+- [Keyset Pagination](KeysetPagination)
+- [Migration Bundles](MigrationBundles)
+- [Owned Entities](OwnedEntities)
+- [Primitive Collections](PrimitiveCollections)
+- [Query Filters](QueryFilters)
+- [Sentinel Values](SentinelValues)
+- [Sequences](Sequences)
+- [Shadow Properties](ShadowProperties)
+- [Smart Enums](SmartEnums)
+- [Split Queries](SplitQueries)
+- [Table per Concrete Type](TablePerConcreteType)
+- [Table per Hierarchy](TablePerHierarchy)
+- [Table per Type](TablePerType)
+- [Tags](Tags)
+- [Temporal Tables](TemporalTables)
+- [Unmapped Types](UnmappedTypes)
+- [Value Converters](ValueConverters)
+
+## Features by EF Core Version
+
+Grouped by the EF Core version that introduced the feature.
+
+### EF Core 8.0
+
+- [Complex Types](ComplexTypes)
+- [DateOnly and TimeOnly](DateOnlyTimeOnly)
+- [Enhanced Bulk Update and Delete](EnhancedBulkUpdateAndDelete)
+- [Enhanced JSON Columns](EnhancedJsonColumns)
+- [Hierarchy IDs](HierarchyIds)
+- [Primitive Collections](PrimitiveCollections)
+- [Sentinel Values](SentinelValues)
+- [Unmapped Types](UnmappedTypes)
+
+### EF Core 7.0
+
+- [Bulk Deletes](BulkDeletes)
+- [Bulk Updates](BulkUpdates)
+- [JSON Columns](JsonColumns)
+- [Table per Concrete Type](TablePerConcreteType)
+
+### EF Core 6.0
+
+- [Compiled Models](CompiledModels)
+- [Migration Bundles](MigrationBundles)
+- [Temporal Tables](TemporalTables)
+
+### EF Core 5.0
+
+- [Split Queries](SplitQueries)
+- [Table per Type](TablePerType)
+
+### EF Core 2.x
+
+- [Compiled Queries](CompiledQueries) (2.0)
+- [DbContext Pooling](DbContextPooling) (2.0)
+- [Owned Entities](OwnedEntities) (2.0)
+- [Query Filters](QueryFilters) (2.0)
+- [Value Converters](ValueConverters) (2.1)
+- [Tags](Tags) (2.2)
+
+### EF Core 1.x
+
+- [Backing Fields](BackingFields) (1.1)
+- [Buffering and Streaming](BufferingAndStreaming) (1.0)
+- [Sequences](Sequences) (1.0)
+- [Shadow Properties](ShadowProperties) (1.0)
+- [Table per Hierarchy](TablePerHierarchy) (1.0)
+
+### Patterns (any version)
+
+These samples show techniques built on top of EF Core rather than a single EF Core feature.
+
+- [Keyset Pagination](KeysetPagination)
+- [Smart Enums](SmartEnums) (uses `Ardalis.SmartEnum.EFCore` and value converters)
