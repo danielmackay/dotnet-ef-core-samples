@@ -23,6 +23,7 @@
   <Project Path="EnhancedJsonColumns/EnhancedJsonColumns.csproj" />
   <Project Path="HierarchyIds/HierarchyIds.csproj" />
   <Project Path="JsonColumns/JsonColumns.csproj" />
+  <Project Path="JsonFunctions/JsonFunctions.csproj" />
   <Project Path="KeysetPagination/KeysetPagination.csproj" />
   <Project Path="LinqTranslations11/LinqTranslations11.csproj" />
   <Project Path="MigrationBundles/MigrationBundles.csproj" />
