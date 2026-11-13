@@ -38,6 +38,10 @@ public class ApplicationDbContext(
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        // The default container is the context class name unless set. GetSessionToken()/UseSessionToken()
+        // work on the default container, so point it at the one container this sample uses.
+        modelBuilder.HasDefaultContainer(CustomersContainer);
+
         modelBuilder.Entity<Customer>(customer =>
         {
             customer.ToContainer(CustomersContainer);

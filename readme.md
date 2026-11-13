@@ -59,7 +59,7 @@ Grouped by the EF Core version that introduced the feature.
 
 The EF Core 11 samples check their own results: each prints a `PASS`/`FAIL` line per check and exits with a non-zero code if any check fails.
 
-- [Cosmos DB](CosmosDb) (complex types and indexing policy)
+- [Cosmos DB](CosmosDb) (complex types, indexing policy, transactional batches, bulk execution and session tokens)
 - [JSON Functions](JsonFunctions) (`JsonPathExists`, `JsonContains`, `JSON_CONTAINS` at compatibility 170)
 - [LINQ Translations (EF Core 11)](LinqTranslations11) (`FullJoin`, `MaxBy`/`MinBy`, GroupBy, to-one joins, no-op `CAST`s)
 - [Temporal Tables](TemporalTables) (period columns mapped to CLR properties)

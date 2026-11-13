@@ -20,6 +20,9 @@ await using (var db = new ApplicationDbContext(new CosmosCapture()))
 
 await ComplexTypesDemo.RunAsync();
 await IndexingPolicyDemo.RunAsync();
+await TransactionalBatchDemo.RunAsync();
+await BulkExecutionDemo.RunAsync();
+await SessionTokenDemo.RunAsync();
 
 Console.WriteLine();
 Check.Summary();
