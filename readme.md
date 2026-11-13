@@ -24,6 +24,7 @@ The repo targets .NET 11 and EF Core 11. The `dotnet-ef` CLI is pinned in the lo
 - [Compiled Models](CompiledModels)
 - [Compiled Queries](CompiledQueries)
 - [Complex Types](ComplexTypes)
+- [Complex Types (EF Core 11)](ComplexTypes11)
 - [Cosmos DB](CosmosDb)
 - [DateOnly and TimeOnly](DateOnlyTimeOnly)
 - [DbContext Pooling](DbContextPooling)
@@ -60,6 +61,7 @@ Grouped by the EF Core version that introduced the feature.
 
 The EF Core 11 samples check their own results: each prints a `PASS`/`FAIL` line per check and exits with a non-zero code if any check fails.
 
+- [Complex Types (EF Core 11)](ComplexTypes11) (TPT/TPC, nested `Property(...)` lambdas, keys and indexes on complex properties, JSON indexes)
 - [Cosmos DB](CosmosDb) (complex types and indexing policy)
 - [JSON Functions](JsonFunctions) (`JsonPathExists`, `JsonContains`, `JSON_CONTAINS` at compatibility 170)
 - [LINQ Translations (EF Core 11)](LinqTranslations11) (`FullJoin`, `MaxBy`/`MinBy`, GroupBy, to-one joins, no-op `CAST`s)
