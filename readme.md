@@ -31,6 +31,7 @@ The repo targets .NET 11 and EF Core 11. The `dotnet-ef` CLI is pinned in the lo
 - [Hierarchy IDs](HierarchyIds)
 - [JSON Columns](JsonColumns)
 - [Keyset Pagination](KeysetPagination)
+- [LINQ Translations (EF Core 11)](LinqTranslations11)
 - [Migration Bundles](MigrationBundles)
 - [Owned Entities](OwnedEntities)
 - [Primitive Collections](PrimitiveCollections)
@@ -56,6 +57,7 @@ Grouped by the EF Core version that introduced the feature.
 
 The EF Core 11 samples check their own results: each prints a `PASS`/`FAIL` line per check and exits with a non-zero code if any check fails.
 
+- [LINQ Translations (EF Core 11)](LinqTranslations11) (`FullJoin`, `MaxBy`/`MinBy`, GroupBy, to-one joins, no-op `CAST`s)
 - [Temporal Tables](TemporalTables) (period columns mapped to CLR properties)
 
 ### EF Core 8.0

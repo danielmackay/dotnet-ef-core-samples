@@ -24,6 +24,7 @@
   <Project Path="HierarchyIds/HierarchyIds.csproj" />
   <Project Path="JsonColumns/JsonColumns.csproj" />
   <Project Path="KeysetPagination/KeysetPagination.csproj" />
+  <Project Path="LinqTranslations11/LinqTranslations11.csproj" />
   <Project Path="MigrationBundles/MigrationBundles.csproj" />
   <Project Path="OwnedEntities/OwnedEntities.csproj" />
   <Project Path="PrimitiveCollections/PrimitiveCollections.csproj" />
