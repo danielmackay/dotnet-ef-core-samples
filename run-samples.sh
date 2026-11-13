@@ -47,9 +47,10 @@ for name in "${samples[@]}"; do
     dotnet run --no-build --project "$name" </dev/null >"$log" 2>&1
     code=$?
   fi
-  results+=("$(printf '%-30s %s' "$name" "$code")")
+  if [[ $code -eq 0 ]]; then status=PASS; else status=FAIL; fi
+  results+=("$(printf '%-30s %-6s %s' "$name" "$status" "$code")")
   if [[ $code -ne 0 ]]; then
-    failed=1
+    failed=$((failed + 1))
     echo "---- $name failed (exit $code), last lines of output:"
     tail -20 "$log"
   fi
@@ -57,6 +58,8 @@ for name in "${samples[@]}"; do
 done
 
 echo
-echo "Sample                         Exit code"
+echo "Sample                         Result Exit code"
 printf '%s\n' "${results[@]}"
-exit $failed
+echo
+echo "$(( ${#samples[@]} - failed )) passed, $failed failed"
+[[ $failed -eq 0 ]]
