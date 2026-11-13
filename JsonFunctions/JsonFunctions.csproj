@@ -1,0 +1,7 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <!-- EF.Functions.JsonContains is marked experimental in EF Core 11 (EF9106). -->
+    <NoWarn>$(NoWarn);EF9106</NoWarn>
+  </PropertyGroup>
+</Project>

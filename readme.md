@@ -6,7 +6,7 @@ A collection of the latest features of EF Core.  These are the more interesting 
 
 ## Usage
 
-1. Run the AppHost to start SQL Server (and the Cosmos DB emulator for the Cosmos DB sample)
+1. Run the AppHost to start SQL Server (SQL Server 2025) and the Cosmos DB emulator (used by the Cosmos DB sample)
 2. Run any sample
 
 Each sample is a self-contained console application that can be run independently to explore and learn.
@@ -31,7 +31,9 @@ The repo targets .NET 11 and EF Core 11. The `dotnet-ef` CLI is pinned in the lo
 - [Enhanced JSON Columns](EnhancedJsonColumns)
 - [Hierarchy IDs](HierarchyIds)
 - [JSON Columns](JsonColumns)
+- [JSON Functions](JsonFunctions)
 - [Keyset Pagination](KeysetPagination)
+- [LINQ Translations (EF Core 11)](LinqTranslations11)
 - [Migration Bundles](MigrationBundles)
 - [Owned Entities](OwnedEntities)
 - [Primitive Collections](PrimitiveCollections)
@@ -58,6 +60,8 @@ Grouped by the EF Core version that introduced the feature.
 The EF Core 11 samples check their own results: each prints a `PASS`/`FAIL` line per check and exits with a non-zero code if any check fails.
 
 - [Cosmos DB](CosmosDb) (complex types and indexing policy)
+- [JSON Functions](JsonFunctions) (`JsonPathExists`, `JsonContains`, `JSON_CONTAINS` at compatibility 170)
+- [LINQ Translations (EF Core 11)](LinqTranslations11) (`FullJoin`, `MaxBy`/`MinBy`, GroupBy, to-one joins, no-op `CAST`s)
 - [Temporal Tables](TemporalTables) (period columns mapped to CLR properties)
 
 ### EF Core 8.0

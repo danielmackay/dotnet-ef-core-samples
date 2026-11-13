@@ -4,6 +4,8 @@ var password = builder.AddParameter("password", secret: true, value: "yourStrong
 
 builder
     .AddSqlServer("sql", port: 1700, password: password)
+    // SQL Server 2025 is needed for the json type, JSON_CONTAINS and compatibility level 170.
+    .WithImageTag("2025-latest")
     .WithLifetime(ContainerLifetime.Persistent);
 
 // Only the CosmosDb sample uses this. RunAsEmulator runs the Linux-based (vNext) emulator, which is
