@@ -17,6 +17,8 @@
   <Project Path="CompiledModels/CompiledModels.csproj" />
   <Project Path="CompiledQueries/CompiledQueries.csproj" />
   <Project Path="ComplexTypes/ComplexTypes.csproj" />
+  <Project Path="ComplexTypes11/ComplexTypes11.csproj" />
+  <Project Path="CosmosDb/CosmosDb.csproj" />
   <Project Path="DateOnlyTimeOnly/DateOnlyTimeOnly.csproj" />
   <Project Path="DbContextPooling/DbContextPooling.csproj" />
   <Project Path="EnhancedBulkUpdateAndDelete/EnhancedBulkUpdateAndDelete.csproj" />
@@ -26,7 +28,9 @@
   <Project Path="JsonColumns/JsonColumns.csproj" />
   <Project Path="JsonFunctions/JsonFunctions.csproj" />
   <Project Path="KeysetPagination/KeysetPagination.csproj" />
+  <Project Path="LinqTranslations11/LinqTranslations11.csproj" />
   <Project Path="MigrationBundles/MigrationBundles.csproj" />
+  <Project Path="Migrations11/Migrations11.csproj" />
   <Project Path="OwnedEntities/OwnedEntities.csproj" />
   <Project Path="PrimitiveCollections/PrimitiveCollections.csproj" />
   <Project Path="QueryFilters/QueryFilters.csproj" />
@@ -42,4 +46,5 @@
   <Project Path="TemporalTables/TemporalTables.csproj" />
   <Project Path="UnmappedTypes/UnmappedTypes.csproj" />
   <Project Path="ValueConverters/ValueConverters.csproj" />
+  <Project Path="VectorSearch/VectorSearch.csproj" />
 </Solution>
