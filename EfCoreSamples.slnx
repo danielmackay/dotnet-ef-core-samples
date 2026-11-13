@@ -29,6 +29,7 @@
   <Project Path="KeysetPagination/KeysetPagination.csproj" />
   <Project Path="LinqTranslations11/LinqTranslations11.csproj" />
   <Project Path="MigrationBundles/MigrationBundles.csproj" />
+  <Project Path="Migrations11/Migrations11.csproj" />
   <Project Path="OwnedEntities/OwnedEntities.csproj" />
   <Project Path="PrimitiveCollections/PrimitiveCollections.csproj" />
   <Project Path="QueryFilters/QueryFilters.csproj" />

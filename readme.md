@@ -36,6 +36,7 @@ The repo targets .NET 11 and EF Core 11. The `dotnet-ef` CLI is pinned in the lo
 - [Keyset Pagination](KeysetPagination)
 - [LINQ Translations (EF Core 11)](LinqTranslations11)
 - [Migration Bundles](MigrationBundles)
+- [Migrations 11](Migrations11)
 - [Owned Entities](OwnedEntities)
 - [Primitive Collections](PrimitiveCollections)
 - [Query Filters](QueryFilters)
@@ -65,6 +66,7 @@ The EF Core 11 samples check their own results: each prints a `PASS`/`FAIL` line
 - [Cosmos DB](CosmosDb) (complex types and indexing policy)
 - [JSON Functions](JsonFunctions) (`JsonPathExists`, `JsonContains`, `JSON_CONTAINS` at compatibility 170)
 - [LINQ Translations (EF Core 11)](LinqTranslations11) (`FullJoin`, `MaxBy`/`MinBy`, GroupBy, to-one joins, no-op `CAST`s)
+- [Migrations 11](Migrations11) (`ExcludeForeignKeyFromMigrations()`, latest migration ID in the snapshot, `dotnet ef` CLI changes)
 - [Temporal Tables](TemporalTables) (period columns mapped to CLR properties)
 - [Vector Search](VectorSearch) (vector indexes, approximate `VECTOR_SEARCH()`, vectors no longer loaded by default; experimental)
 
