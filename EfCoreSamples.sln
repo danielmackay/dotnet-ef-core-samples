@@ -76,6 +76,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{D9CB78
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{B25D22F5-1D12-48D6-859A-658D73D03015}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartEnums", "SmartEnums\SmartEnums.csproj", "{803CA40D-3047-4CC9-B1E8-15B1434FB242}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -202,6 +204,10 @@ Global
 		{EFE525A3-2D62-4A00-B354-12E1D0BE247D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EFE525A3-2D62-4A00-B354-12E1D0BE247D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EFE525A3-2D62-4A00-B354-12E1D0BE247D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{803CA40D-3047-4CC9-B1E8-15B1434FB242}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{803CA40D-3047-4CC9-B1E8-15B1434FB242}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{803CA40D-3047-4CC9-B1E8-15B1434FB242}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{803CA40D-3047-4CC9-B1E8-15B1434FB242}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9C7474B1-D81B-4887-8055-43334F9A6A8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9C7474B1-D81B-4887-8055-43334F9A6A8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C7474B1-D81B-4887-8055-43334F9A6A8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
