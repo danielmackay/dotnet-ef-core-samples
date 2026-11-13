@@ -17,6 +17,7 @@
   <Project Path="CompiledModels/CompiledModels.csproj" />
   <Project Path="CompiledQueries/CompiledQueries.csproj" />
   <Project Path="ComplexTypes/ComplexTypes.csproj" />
+  <Project Path="CosmosDb/CosmosDb.csproj" />
   <Project Path="DateOnlyTimeOnly/DateOnlyTimeOnly.csproj" />
   <Project Path="DbContextPooling/DbContextPooling.csproj" />
   <Project Path="EnhancedBulkUpdateAndDelete/EnhancedBulkUpdateAndDelete.csproj" />
