@@ -32,6 +32,7 @@ The repo targets .NET 11 and EF Core 11. The `dotnet-ef` CLI is pinned in the lo
 - [JSON Columns](JsonColumns)
 - [Keyset Pagination](KeysetPagination)
 - [Migration Bundles](MigrationBundles)
+- [Migrations 11](Migrations11)
 - [Owned Entities](OwnedEntities)
 - [Primitive Collections](PrimitiveCollections)
 - [Query Filters](QueryFilters)
@@ -56,6 +57,7 @@ Grouped by the EF Core version that introduced the feature.
 
 The EF Core 11 samples check their own results: each prints a `PASS`/`FAIL` line per check and exits with a non-zero code if any check fails.
 
+- [Migrations 11](Migrations11) (`ExcludeForeignKeyFromMigrations()`, latest migration ID in the snapshot, `dotnet ef` CLI changes)
 - [Temporal Tables](TemporalTables) (period columns mapped to CLR properties)
 
 ### EF Core 8.0
