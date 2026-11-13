@@ -1,15 +1,14 @@
-<Project Sdk="Microsoft.NET.Sdk">
-
-  <Sdk Name="Aspire.AppHost.Sdk" Version="9.0.0"/>
+<Project Sdk="Aspire.AppHost.Sdk/13.6.5">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <IsAspireHost>true</IsAspireHost>
+    <!-- The AppHost runs with `dotnet run`, so the orchestrator and dashboard come from
+         NuGet packages and the Aspire CLI bundle isn't needed. -->
+    <NoWarn>$(NoWarn);ASPIRE010</NoWarn>
     <UserSecretsId>daabdc2a-304a-4fa8-91e0-f2a1745c5d8d</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Aspire.Hosting.AppHost" />
     <PackageReference Include="Aspire.Hosting.SqlServer"/>
   </ItemGroup>
 

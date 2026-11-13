@@ -11,6 +11,10 @@ A collection of the latest features of EF Core.  These are the more interesting 
 
 Each sample is a self-contained console application that can be run independently to explore and learn.
 
+To run every sample and see each one's exit code, start the AppHost and run `./run-samples.sh` (or `./run-samples.sh <Sample> ...` for a few). The script exits with a non-zero code if any sample fails.
+
+The repo targets .NET 11 and EF Core 11. The `dotnet-ef` CLI is pinned in the local tool manifest, so run `dotnet tool restore` once and then `dotnet dotnet-ef ...` (or `dotnet ef ...`).
+
 ## All Features
 
 - [Backing Fields](BackingFields)
