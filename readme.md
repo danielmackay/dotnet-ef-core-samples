@@ -6,8 +6,14 @@ A collection of the latest features of EF Core.  These are the more interesting 
 
 ## Usage
 
-1. Run the AppHost to start SQL Server (SQL Server 2025)
+1. Run the AppHost to start SQL Server (SQL Server 2025 with Full-Text Search)
 2. Run any sample
+
+The stock SQL Server Linux image doesn't include Full-Text Search, so the AppHost builds its own image from [AppHost/SqlServer/Dockerfile](AppHost/SqlServer/Dockerfile), which adds the `mssql-server-fts` package. The first start takes a few minutes while Docker downloads about 700 MB of packages. Later starts reuse the built image.
+
+**Apple Silicon (ARM64) Macs:** SQL Server for Linux, and its full-text package, only ship for amd64, so the container runs under emulation. In Docker Desktop, turn on "Use Rosetta for x86_64/amd64 emulation on Apple Silicon" (Settings > General). OrbStack uses Rosetta by default. Docker prints a platform-mismatch warning, which you can ignore. Expect slower startup and slower full-text population than on an x64 machine.
+
+The SQL Server container is persistent. If the FullTextSearch sample reports that Full-Text Search isn't installed after you pull this change, delete the old `sql` container in Docker so the AppHost recreates it from the new image.
 
 Each sample is a self-contained console application that can be run independently to explore and learn.
 
@@ -28,6 +34,7 @@ The repo targets .NET 11 and EF Core 11. The `dotnet-ef` CLI is pinned in the lo
 - [DbContext Pooling](DbContextPooling)
 - [Enhanced Bulk Update and Delete](EnhancedBulkUpdateAndDelete)
 - [Enhanced JSON Columns](EnhancedJsonColumns)
+- [Full-Text Search](FullTextSearch)
 - [Hierarchy IDs](HierarchyIds)
 - [JSON Columns](JsonColumns)
 - [JSON Functions](JsonFunctions)
@@ -57,6 +64,7 @@ Grouped by the EF Core version that introduced the feature.
 
 The EF Core 11 samples check their own results: each prints a `PASS`/`FAIL` line per check and exits with a non-zero code if any check fails.
 
+- [Full-Text Search](FullTextSearch) (full-text catalogs and indexes in migrations, `FreeTextTable` and `ContainsTable` with rank)
 - [JSON Functions](JsonFunctions) (`JsonPathExists`, `JsonContains`, `JSON_CONTAINS` at compatibility 170)
 - [Temporal Tables](TemporalTables) (period columns mapped to CLR properties)
 

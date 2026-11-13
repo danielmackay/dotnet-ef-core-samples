@@ -21,6 +21,7 @@
   <Project Path="DbContextPooling/DbContextPooling.csproj" />
   <Project Path="EnhancedBulkUpdateAndDelete/EnhancedBulkUpdateAndDelete.csproj" />
   <Project Path="EnhancedJsonColumns/EnhancedJsonColumns.csproj" />
+  <Project Path="FullTextSearch/FullTextSearch.csproj" />
   <Project Path="HierarchyIds/HierarchyIds.csproj" />
   <Project Path="JsonColumns/JsonColumns.csproj" />
   <Project Path="JsonFunctions/JsonFunctions.csproj" />
