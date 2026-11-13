@@ -1,0 +1,43 @@
+<Solution>
+  <Folder Name="/.sln/">
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
+    <File Path="readme.md" />
+  </Folder>
+  <Folder Name="/Common/">
+    <Project Path="Common/Common.csproj" />
+  </Folder>
+  <Folder Name="/Tools/">
+    <Project Path="AppHost/AppHost.csproj" />
+  </Folder>
+  <Project Path="BackingFields/BackingFields.csproj" />
+  <Project Path="BufferingAndStreaming/BufferingAndStreaming.csproj" />
+  <Project Path="BulkDeletes/BulkDeletes.csproj" />
+  <Project Path="BulkUpdates/BulkUpdates.csproj" />
+  <Project Path="CompiledModels/CompiledModels.csproj" />
+  <Project Path="CompiledQueries/CompiledQueries.csproj" />
+  <Project Path="ComplexTypes/ComplexTypes.csproj" />
+  <Project Path="DateOnlyTimeOnly/DateOnlyTimeOnly.csproj" />
+  <Project Path="DbContextPooling/DbContextPooling.csproj" />
+  <Project Path="EnhancedBulkUpdateAndDelete/EnhancedBulkUpdateAndDelete.csproj" />
+  <Project Path="EnhancedJsonColumns/EnhancedJsonColumns.csproj" />
+  <Project Path="HierarchyIds/HierarchyIds.csproj" />
+  <Project Path="JsonColumns/JsonColumns.csproj" />
+  <Project Path="KeysetPagination/KeysetPagination.csproj" />
+  <Project Path="MigrationBundles/MigrationBundles.csproj" />
+  <Project Path="OwnedEntities/OwnedEntities.csproj" />
+  <Project Path="PrimitiveCollections/PrimitiveCollections.csproj" />
+  <Project Path="QueryFilters/QueryFilters.csproj" />
+  <Project Path="SentinelValues/SentinelValues.csproj" />
+  <Project Path="Sequences/Sequences.csproj" />
+  <Project Path="ShadowProperties/ShadowProperties.csproj" />
+  <Project Path="SmartEnums/SmartEnums.csproj" />
+  <Project Path="SplitQueries/SplitQueries.csproj" />
+  <Project Path="TablePerConcreteType/TablePerConcreateType.csproj" />
+  <Project Path="TablePerHierarchy/TablePerHierarchy.csproj" />
+  <Project Path="TablePerType/TablePerType.csproj" />
+  <Project Path="Tags/Tags.csproj" />
+  <Project Path="TemporalTables/TemporalTables.csproj" />
+  <Project Path="UnmappedTypes/UnmappedTypes.csproj" />
+  <Project Path="ValueConverters/ValueConverters.csproj" />
+</Solution>
