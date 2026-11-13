@@ -71,7 +71,7 @@ The EF Core 11 samples check their own results: each prints a `PASS`/`FAIL` line
 
 - [Complex Types (EF Core 11)](ComplexTypes11) (TPT/TPC, nested `Property(...)` lambdas, keys and indexes on complex properties, JSON indexes)
 - [Cosmos DB](CosmosDb) (complex types, indexing policy, transactional batches, bulk execution and session tokens)
-- [Full-Text Search](FullTextSearch) (full-text catalogs and indexes in migrations, `FreeTextTable` and `ContainsTable` with rank)
+- [Full-Text Search](FullTextSearch) (full-text catalogs and indexes in migrations, `FreeTextTable` and `ContainsTable` with rank, hybrid full-text + vector search with `FullJoin` and reciprocal rank fusion)
 - [JSON Functions](JsonFunctions) (`JsonPathExists`, `JsonContains`, `JSON_CONTAINS` at compatibility 170)
 - [LINQ Translations (EF Core 11)](LinqTranslations11) (`FullJoin`, `MaxBy`/`MinBy`, GroupBy, to-one joins, no-op `CAST`s)
 - [Migrations 11](Migrations11) (`ExcludeForeignKeyFromMigrations()`, latest migration ID in the snapshot, `dotnet ef` CLI changes)

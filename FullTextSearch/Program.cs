@@ -56,12 +56,7 @@ Check.That(indexedColumns.Order().SequenceEqual(["Contents", "Title"]), "Article
 
 Console.WriteLine();
 Console.WriteLine("2. Seed articles and wait for the full-text index to populate");
-db.Articles.AddRange(
-    new Article { Title = "Growing vegetables at home", Contents = "A beginner's guide to growing your own vegetables. Vegetables need sun, water and good soil, so plant them in spring." },
-    new Article { Title = "Fruit salad", Contents = "Apples, pears and berries make a fresh fruit salad for summer." },
-    new Article { Title = "Car engine maintenance", Contents = "Change the oil and check the engine belts every year." },
-    new Article { Title = "Winter soup", Contents = "A hearty soup of carrots, leeks and other winter vegetables." },
-    new Article { Title = "Healthy eating", Contents = "Eat fruit every day and add greens to every meal." });
+db.Articles.AddRange(SampleArticles.Create());
 await db.SaveChangesAsync();
 var articleCount = await db.Articles.CountAsync();
 
@@ -103,6 +98,43 @@ Check.Equal("Winter soup", contains.FirstOrDefault()?.Title, "top CONTAINSTABLE 
 Check.Equal(3, contains.Count, "CONTAINSTABLE matches the soup and both fruit articles");
 Check.That(IsDescending(contains.Select(x => x.Rank)), "CONTAINSTABLE results are in descending rank order");
 
+Console.WriteLine();
+Console.WriteLine("5. Hybrid search as the EF Core docs write it: FreeTextTable + VectorSearch(...).WithApproximate(), merged with FullJoin");
+var vectorSearchHybrid = HybridSearch.Fuse(HybridSearch.FullTextHits(db), HybridSearch.VectorSearchHits(db));
+var vectorSearchHybridSql = vectorSearchHybrid.ToQueryString();
+Console.WriteLine(vectorSearchHybridSql);
+Check.That(vectorSearchHybridSql.Contains("FREETEXTTABLE(", StringComparison.Ordinal), "VectorSearch hybrid SQL uses FREETEXTTABLE");
+Check.That(vectorSearchHybridSql.Contains("VECTOR_SEARCH(", StringComparison.Ordinal) && vectorSearchHybridSql.Contains("WITH APPROXIMATE", StringComparison.Ordinal),
+    "VectorSearch hybrid SQL uses VECTOR_SEARCH with TOP(...) WITH APPROXIMATE");
+Check.That(vectorSearchHybridSql.Contains("FULL JOIN", StringComparison.Ordinal), "VectorSearch hybrid SQL merges the two searches with FULL JOIN");
+Check.That(vectorSearchHybridSql.Split('\n').Count(line => line.StartsWith("SELECT", StringComparison.Ordinal)) == 1,
+    "VectorSearch hybrid query is a single SQL statement");
+
+// EF Core 11 emits the latest VECTOR_SEARCH syntax (TOP(n) WITH APPROXIMATE). Azure SQL Database
+// supports it; boxed SQL Server 2025 (RTM to CU11 at the time of writing) rejects it with
+// "Incorrect syntax" (error 102). The SQL is checked above, so only the execution is skipped.
+try
+{
+    var results = await vectorSearchHybrid.ToListAsync();
+    results.ForEach(Console.WriteLine);
+    CheckHybridResults(results, "VectorSearch hybrid");
+}
+catch (SqlException ex) when (ex.Number == 102)
+{
+    Console.WriteLine($"SKIP: this SQL Server doesn't support EF Core 11's VECTOR_SEARCH syntax yet ({ex.Message.Split('\n')[0]}). Section 6 runs the same hybrid search with VECTOR_DISTANCE.");
+}
+
+Console.WriteLine();
+Console.WriteLine("6. Hybrid search that runs on SQL Server 2025: FreeTextTable + VectorDistance, merged with FullJoin");
+sql.Clear();
+var hybrid = await HybridSearch.Fuse(HybridSearch.FullTextHits(db), HybridSearch.VectorDistanceHits(db)).ToListAsync();
+Console.WriteLine(sql.Last);
+hybrid.ForEach(Console.WriteLine);
+Check.Equal(1, sql.Commands.Count, "hybrid search runs as one SQL statement");
+Check.That(sql.Last.Contains("FREETEXTTABLE(", StringComparison.Ordinal) && sql.Last.Contains("VECTOR_DISTANCE(", StringComparison.Ordinal)
+    && sql.Last.Contains("FULL JOIN", StringComparison.Ordinal), "hybrid SQL uses FREETEXTTABLE, VECTOR_DISTANCE and FULL JOIN");
+CheckHybridResults(hybrid, "hybrid");
+
 Check.Summary();
 
 Console.ReadLine();
@@ -129,6 +161,16 @@ static async Task<bool> WaitForPopulation(ApplicationDbContext db, int expectedR
     }
 
     return false;
+}
+
+static void CheckHybridResults(List<HybridHit> results, string label)
+{
+    Check.That(results.Any(h => h is { FullTextPosition: not null, VectorPosition: null }), $"{label} results include an article only full-text search finds");
+    Check.That(results.Any(h => h is { FullTextPosition: null, VectorPosition: not null }), $"{label} results include an article only vector search finds");
+    var top = results.FirstOrDefault();
+    Check.That(top is { FullTextPosition: not null, VectorPosition: not null }, $"the top {label} result is found by both searches");
+    Check.Equal("Growing vegetables at home", top?.Title, $"top {label} result");
+    Check.That(results.Zip(results.Skip(1)).All(pair => pair.First.Score >= pair.Second.Score), $"{label} results are in descending RRF score order");
 }
 
 static bool IsDescending(IEnumerable<int> ranks) =>

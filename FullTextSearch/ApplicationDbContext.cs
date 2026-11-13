@@ -37,6 +37,9 @@ public class ApplicationDbContext(SqlCapture sqlCapture) : DbContext
         article.Property(a => a.Contents).HasColumnType("nvarchar(max)");
         article.Property(a => a.Title).HasMaxLength(200);
 
+        // Hybrid search compares these embeddings with VECTOR_DISTANCE / VECTOR_SEARCH.
+        article.Property(a => a.Embedding).HasColumnType($"vector({SampleArticles.Dimensions})");
+
         article
             .HasFullTextIndex(a => new { a.Title, a.Contents })
             .UseKeyIndex("PK_Articles")
