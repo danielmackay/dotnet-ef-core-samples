@@ -144,9 +144,9 @@ The merge (see `HybridSearch.Fuse`):
 fullText
     .FullJoin(vector, t => t.Id, v => v.Id, (t, v) => new
     {
-        Title = t!.Title ?? v!.Title,
-        FullTextPosition = t!.Id == null ? null : t.Position,
-        VectorPosition = v!.Id == null ? null : v.Position,
+        Title = t.Title ?? v.Title ?? string.Empty,
+        FullTextPosition = t.Id == null ? null : t.Position,
+        VectorPosition = v.Id == null ? null : v.Position,
     })
     .Select(x => new
     {
@@ -166,6 +166,7 @@ Things to watch for:
 - **The docs' scoring isn't true RRF.** The EF Core docs' hybrid example scores `1.0 / (k + f.Rank)` and `1.0 / (k + v.Distance)`, which uses the raw values. A *better* full-text match has a *higher* `RANK`, so it gets a *lower* score, and a distance isn't a position. Use positions.
 - **A missing side doesn't give NULL counts.** A `COUNT(*)` subquery correlated to the missing side of the FULL JOIN returns 0, not NULL, so `t.Position` alone would make every article look found by both searches. The sample checks the side's key (`t.Id == null`) instead.
 - **Read columns, not entities.** In EF Core 11.0.0, a result selector that projects entities with ternaries (`f != null ? f.Article : v.Article`, as in the docs) generates valid SQL but throws `Cannot read the Value property of a Nullable object that has no value` when one side is missing. Project scalar columns through the `FullJoin` and combine them with `??`.
+- **Make the ranked-list type a struct.** `FullJoin` passes `null` for the missing side, so with a class the selector needs `t!.Title` (and `t != null` on a class that isn't an entity can't be translated). `RankedHit` is a `readonly struct`, so the selector gets a `RankedHit` whose columns are all NULL instead, and reads them without `!` or null checks.
 - The docs' `vs == null` doesn't compile: `VectorSearchResult<T>` is a struct.
 
 ### Why there are two hybrid queries
@@ -182,7 +183,7 @@ db.Articles
 
 EF Core 11 translates this to the latest `VECTOR_SEARCH` syntax, `SELECT TOP(3) WITH APPROXIMATE ... FROM VECTOR_SEARCH(...)`, which Azure SQL Database supports. Boxed SQL Server 2025 (up to CU11 at the time of writing) only has the earlier syntax and rejects it with `Incorrect syntax near 'APPROXIMATE'` (error 102). See the VectorSearch sample for details. So the sample:
 
-1. Builds the `VectorSearch` hybrid query and checks with `ToQueryString()` that it's one statement containing `FREETEXTTABLE`, `VECTOR_SEARCH`, `WITH APPROXIMATE` and `FULL JOIN`. Then it tries to run it, and prints a `SKIP:` line if the server rejects the syntax. On a server that supports it, the result checks below run against it too.
+1. Builds the `VectorSearch` hybrid query and checks with `ToQueryString()` that its SQL contains `FREETEXTTABLE`, `VECTOR_SEARCH`, `WITH APPROXIMATE` and `FULL JOIN`. Then it tries to run it, and records a skip if the server rejects that syntax (error 102 near `APPROXIMATE`; any other error fails the sample). On a server that supports it, the result checks below run against it too.
 2. Runs the same hybrid search with an exact vector search, `EF.Functions.VectorDistance` (EF Core 10, not experimental, needs no vector index), which works on every SQL Server 2025 build. The result checks run on this query. Its SQL is `FREETEXTTABLE ... FULL JOIN (SELECT TOP(3) ... ORDER BY VECTOR_DISTANCE(...))`.
 
 `VectorSearch` and `WithApproximate` are experimental, so the project suppresses `EF9105` (see the csproj). `VectorSearch()` can't be nested in a subquery, so even the `VectorSearch` version counts closer rows with `VECTOR_DISTANCE` to get the vector positions.
@@ -196,11 +197,13 @@ The `AddEmbedding` migration adds the `vector(4)` column. EF scaffolded it with 
 The sample checks that:
 
 - Full-Text Search is installed
-- the migration script creates the catalog and the full-text index, and both exist in `sys.fulltext_catalogs` / `sys.fulltext_indexes` after `Migrate()`
+- the migration script creates the full-text index on `Title` and `Contents`, keyed by `PK_Articles`, in `ftCatalog`
+- the migration script still has the `CREATE FULLTEXT CATALOG` line (hand-added to the migration because of EF bugs, see above)
+- the catalog and the index exist in `sys.fulltext_catalogs` / `sys.fulltext_indexes` after `Migrate()`
 - the index finishes populating with every row
 - the SQL uses `FREETEXTTABLE` / `CONTAINSTABLE`, results come back in descending rank order, and the expected article ranks first
-- the `VectorSearch` hybrid query is one SQL statement with `FREETEXTTABLE`, `VECTOR_SEARCH ... WITH APPROXIMATE` and `FULL JOIN` (it prints `SKIP:` for running it on a server without that syntax)
-- the runnable hybrid query is one SQL statement with `FREETEXTTABLE`, `VECTOR_DISTANCE` and `FULL JOIN`; its results include an article only full-text search finds and one only vector search finds; the article both find ranks highest; and the results are in descending RRF score order
+- the `VectorSearch` hybrid query's SQL has `FREETEXTTABLE`, `VECTOR_SEARCH ... WITH APPROXIMATE` and `FULL JOIN` (running it is a `SKIP` on a server without that syntax, counted in the summary)
+- the runnable hybrid query runs as one SQL statement with `FREETEXTTABLE`, `VECTOR_DISTANCE` and `FULL JOIN`; its results include an article only full-text search finds and one only vector search finds; the article both find ranks highest; and the results are in descending RRF score order
 
 It exits with a non-zero code if any check fails.
 

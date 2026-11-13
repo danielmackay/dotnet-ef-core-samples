@@ -16,11 +16,16 @@ public class ApplicationDbContext(SqlCapture sqlCapture) : DbContext
     {
     }
 
+    /// <summary>The database both of the sample's contexts use.</summary>
+    public const string DatabaseName = "ComplexTypes11";
+
+    /// <summary>Compatibility 170 is SQL Server 2025: ToJson() then maps to the native json type by default.</summary>
+    public const int CompatibilityLevel = 170;
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        // Compatibility 170 is SQL Server 2025: ToJson() then maps to the native json type by default.
         optionsBuilder
-            .UseSqlServer(DbConnectionFactory.Create("ComplexTypes11"), o => o.UseCompatibilityLevel(170))
+            .UseSqlServer(DbConnectionFactory.Create(DatabaseName), o => o.UseCompatibilityLevel(CompatibilityLevel))
             .AddInterceptors(sqlCapture);
     }
 

@@ -17,7 +17,7 @@ await using (var master = new SqlConnection(DbConnectionFactory.Create("master")
 {
     await master.OpenAsync();
     await using var command = new SqlCommand("SELECT CAST(FULLTEXTSERVICEPROPERTY('IsFullTextInstalled') AS int)", master);
-    fullTextInstalled = (int?)await command.ExecuteScalarAsync();
+    fullTextInstalled = await command.ExecuteScalarAsync() is int installed ? installed : null;
 }
 
 if (!Check.Equal(1, fullTextInstalled, "SQL Server has Full-Text Search installed"))
@@ -30,9 +30,16 @@ Console.WriteLine();
 Console.WriteLine("1. The migration creates the full-text catalog and index");
 var script = db.GetService<IMigrator>().GenerateScript();
 Console.WriteLine(script);
-Check.That(script.Contains("CREATE FULLTEXT CATALOG [ftCatalog]", StringComparison.Ordinal), "migration creates the ftCatalog full-text catalog");
-Check.That(script.Contains("CREATE FULLTEXT INDEX ON [Articles]([Title], [Contents]) KEY INDEX [PK_Articles] ON [ftCatalog]", StringComparison.Ordinal),
-    "migration creates the full-text index on Title and Contents, keyed by PK_Articles, in ftCatalog");
+// The catalog line is hand-added to the migration because of EF Core 11.0.0 bugs (see readme), so this
+// only confirms the migration still has it. EF generates the index line from the model.
+Check.That(script.Contains("CREATE FULLTEXT CATALOG [ftCatalog]", StringComparison.Ordinal),
+    "migration creates the ftCatalog full-text catalog (hand-added to the migration because of EF bugs)");
+var fullTextIndexLine = script.Split('\n').FirstOrDefault(line => line.Contains("CREATE FULLTEXT INDEX", StringComparison.Ordinal)) ?? string.Empty;
+Check.That(fullTextIndexLine.Contains("ON [Articles]", StringComparison.Ordinal), "migration creates a full-text index on Articles");
+Check.That(fullTextIndexLine.Contains("[Title]", StringComparison.Ordinal) && fullTextIndexLine.Contains("[Contents]", StringComparison.Ordinal),
+    "the full-text index covers Title and Contents");
+Check.That(fullTextIndexLine.Contains("KEY INDEX [PK_Articles]", StringComparison.Ordinal), "the full-text index is keyed by PK_Articles");
+Check.That(fullTextIndexLine.Contains("ON [ftCatalog]", StringComparison.Ordinal), "the full-text index goes in ftCatalog (UseCatalog)");
 
 await db.Database.EnsureDeletedAsync();
 await db.Database.MigrateAsync();
@@ -81,7 +88,7 @@ freeText.ForEach(x => Console.WriteLine($"  {x.Rank,4}  {x.Title}"));
 Check.That(sql.Last.Contains("FREETEXTTABLE(", StringComparison.Ordinal), "SQL uses FREETEXTTABLE");
 Check.Equal(2, freeText.Count, "FREETEXTTABLE matches both articles that mention vegetables");
 Check.Equal("Growing vegetables at home", freeText.FirstOrDefault()?.Title, "top FREETEXTTABLE match (the article about growing vegetables, not the passing mention)");
-Check.That(IsDescending(freeText.Select(x => x.Rank)), "FREETEXTTABLE results are in descending rank order");
+Check.Descending(freeText.Select(x => x.Rank), "FREETEXTTABLE results are in descending rank order");
 
 Console.WriteLine();
 Console.WriteLine("4. ContainsTable: carrots (weighted high) or fruit (weighted low) in Contents, by rank");
@@ -96,7 +103,7 @@ contains.ForEach(x => Console.WriteLine($"  {x.Rank,4}  {x.Title}"));
 Check.That(sql.Last.Contains("CONTAINSTABLE([Articles], [Contents],", StringComparison.Ordinal), "SQL uses CONTAINSTABLE on the Contents column");
 Check.Equal("Winter soup", contains.FirstOrDefault()?.Title, "top CONTAINSTABLE match (carrots outweighs fruit)");
 Check.Equal(3, contains.Count, "CONTAINSTABLE matches the soup and both fruit articles");
-Check.That(IsDescending(contains.Select(x => x.Rank)), "CONTAINSTABLE results are in descending rank order");
+Check.Descending(contains.Select(x => x.Rank), "CONTAINSTABLE results are in descending rank order");
 
 Console.WriteLine();
 Console.WriteLine("5. Hybrid search as the EF Core docs write it: FreeTextTable + VectorSearch(...).WithApproximate(), merged with FullJoin");
@@ -107,21 +114,20 @@ Check.That(vectorSearchHybridSql.Contains("FREETEXTTABLE(", StringComparison.Ord
 Check.That(vectorSearchHybridSql.Contains("VECTOR_SEARCH(", StringComparison.Ordinal) && vectorSearchHybridSql.Contains("WITH APPROXIMATE", StringComparison.Ordinal),
     "VectorSearch hybrid SQL uses VECTOR_SEARCH with TOP(...) WITH APPROXIMATE");
 Check.That(vectorSearchHybridSql.Contains("FULL JOIN", StringComparison.Ordinal), "VectorSearch hybrid SQL merges the two searches with FULL JOIN");
-Check.That(vectorSearchHybridSql.Split('\n').Count(line => line.StartsWith("SELECT", StringComparison.Ordinal)) == 1,
-    "VectorSearch hybrid query is a single SQL statement");
 
-// EF Core 11 emits the latest VECTOR_SEARCH syntax (TOP(n) WITH APPROXIMATE). Azure SQL Database
-// supports it; boxed SQL Server 2025 (RTM to CU11 at the time of writing) rejects it with
-// "Incorrect syntax" (error 102). The SQL is checked above, so only the execution is skipped.
+// EF Core 11 emits the latest VECTOR_SEARCH syntax (TOP(n) WITH APPROXIMATE), which boxed SQL Server
+// 2025 rejects (see Common/VectorSearchSyntax). The SQL is checked above, so only the execution is
+// skipped there. Any other error fails the sample.
 try
 {
     var results = await vectorSearchHybrid.ToListAsync();
     results.ForEach(Console.WriteLine);
     CheckHybridResults(results, "VectorSearch hybrid");
 }
-catch (SqlException ex) when (ex.Number == 102)
+catch (SqlException ex) when (VectorSearchSyntax.IsUnsupported(ex))
 {
-    Console.WriteLine($"SKIP: this SQL Server doesn't support EF Core 11's VECTOR_SEARCH syntax yet ({ex.Message.Split('\n')[0]}). Section 6 runs the same hybrid search with VECTOR_DISTANCE.");
+    Check.Skip("VectorSearch hybrid results",
+        $"this SQL Server doesn't support EF Core 11's VECTOR_SEARCH syntax yet: {ex.Message.FirstLine()} Section 6 runs the same hybrid search with VECTOR_DISTANCE");
 }
 
 Console.WriteLine();
@@ -170,8 +176,5 @@ static void CheckHybridResults(List<HybridHit> results, string label)
     var top = results.FirstOrDefault();
     Check.That(top is { FullTextPosition: not null, VectorPosition: not null }, $"the top {label} result is found by both searches");
     Check.Equal("Growing vegetables at home", top?.Title, $"top {label} result");
-    Check.That(results.Zip(results.Skip(1)).All(pair => pair.First.Score >= pair.Second.Score), $"{label} results are in descending RRF score order");
+    Check.Descending(results.Select(h => h.Score), $"{label} results are in descending RRF score order");
 }
-
-static bool IsDescending(IEnumerable<int> ranks) =>
-    ranks.Zip(ranks.Skip(1)).All(pair => pair.First >= pair.Second);

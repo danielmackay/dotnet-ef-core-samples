@@ -92,12 +92,10 @@ public static class TransactionalBatchDemo
         }
         catch (TException ex)
         {
-            Console.WriteLine($"  {typeof(TException).Name}: {FirstLine(ex.InnerException?.Message ?? ex.Message)}");
+            Console.WriteLine($"  {typeof(TException).Name}: {(ex.InnerException?.Message ?? ex.Message).FirstLine()}");
             return true;
         }
     }
-
-    private static string FirstLine(string message) => message.Split('\n')[0].Trim();
 
     private static async Task<bool> ExistsAsync(string id, string region, CosmosCapture capture)
     {

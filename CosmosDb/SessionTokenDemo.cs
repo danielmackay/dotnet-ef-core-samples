@@ -30,7 +30,7 @@ public static class SessionTokenDemo
             }
             catch (InvalidOperationException ex)
             {
-                Console.WriteLine($"  FullyAutomatic: {ex.Message.Split('\n')[0].Trim()}");
+                Console.WriteLine($"  FullyAutomatic: {ex.Message.FirstLine()}");
                 Check.That(true, "GetSessionToken() throws in the default FullyAutomatic mode");
             }
         }

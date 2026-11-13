@@ -48,12 +48,12 @@ Console.WriteLine(approximateSql);
 Check.That(approximateSql.Contains("VECTOR_SEARCH(", StringComparison.Ordinal), "approximate SQL uses VECTOR_SEARCH");
 Check.That(approximateSql.Contains("WITH APPROXIMATE", StringComparison.Ordinal), "approximate SQL uses TOP(...) WITH APPROXIMATE");
 
-var approximateResults = RunVectorSearch(approximate);
+var approximateResults = RunVectorSearch(approximate, "approximate VectorSearch results");
 if (approximateResults is not null)
 {
     Print(approximateResults);
     Check.That(approximateResults.Select(r => r.Value.Title).SequenceEqual(expectedTop3), "approximate search returns the 3 database articles, nearest first");
-    Check.That(IsAscending(approximateResults.Select(r => r.Distance)), "approximate search distances are in ascending order");
+    Check.Ascending(approximateResults.Select(r => r.Distance), "approximate search distances are in ascending order");
 }
 
 Console.WriteLine();
@@ -67,7 +67,7 @@ Console.WriteLine(exactSql);
 Check.That(exactSql.Contains("VECTOR_SEARCH(", StringComparison.Ordinal) && !exactSql.Contains("APPROXIMATE", StringComparison.Ordinal),
     "exact SQL uses VECTOR_SEARCH without WITH APPROXIMATE");
 
-var exactResults = RunVectorSearch(exact);
+var exactResults = RunVectorSearch(exact, "exact VectorSearch results");
 if (exactResults is not null)
 {
     Print(exactResults);
@@ -87,7 +87,7 @@ Console.WriteLine(sql.Last);
 foreach (var item in nearest)
     Console.WriteLine($"  {item.Distance:F4}  {item.Title}");
 Check.That(nearest.Select(a => a.Title).SequenceEqual(expectedTop3), "exact search returns the 3 database articles, nearest first");
-Check.That(IsAscending(nearest.Select(a => a.Distance)), "exact search distances are in ascending order");
+Check.Ascending(nearest.Select(a => a.Distance), "exact search distances are in ascending order");
 
 Console.WriteLine();
 Console.WriteLine("4. EF Core 11 no longer reads vector columns when it loads an entity");
@@ -116,19 +116,18 @@ Check.Summary();
 
 Console.ReadLine();
 
-// EF Core 11 emits the latest VECTOR_SEARCH syntax (TOP(n) WITH APPROXIMATE). Azure SQL Database
-// supports it; boxed SQL Server 2025 (RTM to CU11 at the time of writing) only has the earlier
-// syntax with TOP_N inside VECTOR_SEARCH, and rejects the query with "Incorrect syntax" (error 102).
-// The SQL is still checked above, so the sample skips only the execution there.
-static List<VectorSearchResult<Article>>? RunVectorSearch(IQueryable<VectorSearchResult<Article>> search)
+// EF Core 11 emits the latest VECTOR_SEARCH syntax (TOP(n) WITH APPROXIMATE), which boxed SQL Server
+// 2025 rejects (see Common/VectorSearchSyntax). The SQL is still checked above, so the sample skips
+// only the execution there. Any other error fails the sample.
+static List<VectorSearchResult<Article>>? RunVectorSearch(IQueryable<VectorSearchResult<Article>> search, string description)
 {
     try
     {
         return search.ToList();
     }
-    catch (SqlException ex) when (ex.Number == 102)
+    catch (SqlException ex) when (VectorSearchSyntax.IsUnsupported(ex))
     {
-        Console.WriteLine($"SKIP: this SQL Server doesn't support EF Core 11's VECTOR_SEARCH syntax yet ({ex.Message})");
+        Check.Skip(description, $"this SQL Server doesn't support EF Core 11's VECTOR_SEARCH syntax yet: {ex.Message.FirstLine()}");
         return null;
     }
 }
@@ -138,6 +137,3 @@ static void Print(IEnumerable<VectorSearchResult<Article>> results)
     foreach (var (article, distance) in results)
         Console.WriteLine($"  {distance:F4}  {article.Title}");
 }
-
-static bool IsAscending(IEnumerable<double> values) =>
-    values.Zip(values.Skip(1)).All(pair => pair.First <= pair.Second);

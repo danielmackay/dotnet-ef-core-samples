@@ -76,9 +76,10 @@ public static class HybridSearch
     /// Merges the two ranked lists with FullJoin, so an article found by only one search still counts,
     /// and orders them by RRF score: the sum over the lists of 1 / (RrfK + position).
     /// </summary>
-    // FullJoin passes null for the side that didn't find an article. In SQL that side is just
-    // NULL columns, so read them directly (t!.Title ?? v!.Title) rather than testing t == null
-    // or projecting entities, which EF Core 11.0.0 can't materialize here.
+    // FullJoin passes the missing side as null. RankedHit is a struct, so that side arrives as a
+    // RankedHit whose columns are all NULL, and the selector reads them directly, with no null
+    // checks or `!`. (With a class, `t != null` can't be translated, and projecting entities with
+    // ternaries, as the docs do, fails to materialize in EF Core 11.0.0.)
     public static IQueryable<HybridHit> Fuse(IQueryable<RankedHit> fullText, IQueryable<RankedHit> vector) =>
         fullText
             .FullJoin(
@@ -87,11 +88,12 @@ public static class HybridSearch
                 v => v.Id,
                 (t, v) => new
                 {
-                    Title = t!.Title ?? v!.Title,
+                    // One of the two sides always exists, so the empty string is never used.
+                    Title = t.Title ?? v.Title ?? string.Empty,
                     // A correlated COUNT(*) on the missing side gives 0, not NULL, so use the side's
                     // key to tell whether that search found the article.
-                    FullTextPosition = t!.Id == null ? null : t.Position,
-                    VectorPosition = v!.Id == null ? null : v.Position,
+                    FullTextPosition = t.Id == null ? null : t.Position,
+                    VectorPosition = v.Id == null ? null : v.Position,
                 })
             .Select(x => new
             {
@@ -103,13 +105,16 @@ public static class HybridSearch
             })
             .OrderByDescending(x => x.Score)
             .ThenBy(x => x.Title)
-            .Select(x => new HybridHit(x.Title!, x.FullTextPosition, x.VectorPosition, x.Score));
+            .Select(x => new HybridHit(x.Title, x.FullTextPosition, x.VectorPosition, x.Score));
 }
 
-/// <summary>One search's result: the article and its position in that search's ranking (1 = best).</summary>
-public sealed class RankedHit
+/// <summary>
+/// One search's result: the article and its position in that search's ranking (1 = best).
+/// A struct, so FullJoin hands over the missing side as a RankedHit with NULL columns rather than null.
+/// </summary>
+public readonly struct RankedHit
 {
-    // Nullable so the FullJoin can tell a missing side apart.
+    // Nullable so the FullJoin can tell a missing side apart (its Id is NULL).
     public int? Id { get; init; }
 
     public string? Title { get; init; }

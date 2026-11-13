@@ -89,7 +89,7 @@ db.Articles
 
 EF Core 11 generates the **latest** `VECTOR_SEARCH()` syntax (`TOP(n) WITH APPROXIMATE` outside the function). Azure SQL Database, SQL database in Fabric and Azure SQL Managed Instance (always-up-to-date) support it. Boxed SQL Server 2025 (up to CU11 at the time of writing) only supports the earlier syntax with `TOP_N` inside `VECTOR_SEARCH()`, so it rejects both queries with *Incorrect syntax near 'APPROXIMATE'* or *Incorrect syntax near 'TOP_N'*.
 
-So on the AppHost's SQL Server the sample checks the generated SQL of both queries, prints a `SKIP` line instead of running them, and runs the exact search with `VectorDistance`. Against a server that supports the new syntax, it also runs both `VectorSearch` queries and checks their results.
+So on the AppHost's SQL Server the sample checks the generated SQL of both queries, records a `SKIP` (shown in the summary, e.g. `All 9 checks passed, 2 skipped`) instead of checking their results, and runs the exact search with `VectorDistance`. Against a server that supports the new syntax, it also runs both `VectorSearch` queries and checks their results. Only that exact error (102, *Incorrect syntax near 'APPROXIMATE'*, `'TOP_N'` or `'VECTOR_SEARCH'`) is a skip: any other error fails the sample.
 
 ## Vectors are no longer loaded by default
 

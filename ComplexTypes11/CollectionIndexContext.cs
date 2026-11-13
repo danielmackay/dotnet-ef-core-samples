@@ -16,8 +16,8 @@ public class CollectionIndexContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseSqlServer(
-            DbConnectionFactory.Create("ComplexTypes11"),
-            o => o.UseCompatibilityLevel(170));
+            DbConnectionFactory.Create(ApplicationDbContext.DatabaseName),
+            o => o.UseCompatibilityLevel(ApplicationDbContext.CompatibilityLevel));
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

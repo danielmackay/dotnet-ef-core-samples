@@ -37,9 +37,15 @@ public static class EmulatorCapabilities
             await probe.DeleteContainerAsync();
             return true;
         }
-        catch (CosmosException ex) when (ex.StatusCode == HttpStatusCode.BadRequest)
+        catch (CosmosException ex) when (IsIndexingPolicyInvalid(ex))
         {
             return false;
         }
     }
+
+    // Only the emulator's "indexing policy is invalid" answer means "unsupported". Any other error
+    // (another 400, a timeout, a connection failure) propagates and fails the sample.
+    private static bool IsIndexingPolicyInvalid(CosmosException ex) =>
+        ex.StatusCode == HttpStatusCode.BadRequest
+        && ex.Message.Contains("The indexing policy is invalid", StringComparison.Ordinal);
 }

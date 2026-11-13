@@ -33,7 +33,7 @@ public static class BulkExecutionDemo
             }
             catch (InvalidOperationException ex)
             {
-                Console.WriteLine($"  {ex.Message.Split('\n')[0].Trim()}");
+                Console.WriteLine($"  {ex.Message.FirstLine()}");
                 Check.That(ex.Message.Contains(nameof(AutoTransactionBehavior.Never), StringComparison.Ordinal),
                     "bulk execution with AutoTransactionBehavior.Auto throws, pointing at AutoTransactionBehavior.Never");
             }

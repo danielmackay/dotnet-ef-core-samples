@@ -21,7 +21,7 @@ The sample joins customers to orders. The customer with no orders and the order 
 
 ### 4. Better SQL for to-one joins
 
-- **Split queries.** With `Include(b => b.Owner).Include(b => b.Posts).AsSplitQuery()`, the query that loads `Posts` used to join `People` (the owner) too, and order by its key. EF Core 11 drops that join: the owner was already loaded by the first query.
+- **Split queries.** With `Include(b => b.Owner).Include(b => b.Posts).AsSplitQuery()`, the query that loads `Posts` used to join `People` (the owner) too, and order by its key. EF Core 11 drops that join: the owner was already loaded by the first query. Both split queries now order by the blog key alone (`ORDER BY [b].[Id]`), and the sample checks that neither `ORDER BY` includes the owner key.
 - **Single queries.** Without `AsSplitQuery()`, EF used to add the owner's key to `ORDER BY` (`ORDER BY [b].[Id], [p].[Id]`). The blog's key already determines the owner through the foreign key, so EF Core 11 leaves it out (`ORDER BY [b].[Id]`).
 
 The EF team measured roughly 29% (split) and 22% (single) faster queries in a simple benchmark.

@@ -7,7 +7,7 @@ Console.WriteLine("Cosmos DB Sample");
 ApplicationDbContext.IncludeArrayCompositeIndex = await EmulatorCapabilities.SupportsArrayCompositeIndexAsync();
 if (!ApplicationDbContext.IncludeArrayCompositeIndex)
 {
-    Console.WriteLine("SKIP: this Cosmos endpoint (the Linux emulator) rejects composite indexes over array paths, " +
+    Console.WriteLine("Note: this Cosmos endpoint (the Linux emulator) rejects composite indexes over array paths, " +
                       "so the Orders[] composite index is left out of the model. Azure Cosmos DB supports it.");
 }
 

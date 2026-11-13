@@ -42,8 +42,8 @@ public static class IndexingPolicyDemo
         }
         else
         {
-            Console.WriteLine("SKIP: composite index over a complex collection path (/Orders/[]/Total) - " +
-                              "not supported by the Linux emulator");
+            Check.Skip("composite index over a complex collection path (/Orders/[]/Total) is in the policy",
+                "the Linux emulator rejects composite indexes over array paths");
         }
 
         // Azure Cosmos DB needs the composite index to ORDER BY two properties and fails the query without it.

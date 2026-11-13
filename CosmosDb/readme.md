@@ -134,9 +134,9 @@ The sample checks that `GetSessionToken()` throws in `FullyAutomatic` mode, that
 
 ## Emulator limitations
 
-The Linux emulator doesn't support everything Azure Cosmos DB does. Where that affects the sample, it still shows the configuration, skips the check and prints a `SKIP:` line:
+The Linux emulator doesn't support everything Azure Cosmos DB does. Where that affects the sample, it still shows the configuration and records the check as skipped (a `SKIP:` line, counted in the summary):
 
-- **Composite indexes over array paths** (`/Orders/[]/Total`): the emulator rejects the whole container ("The indexing policy is invalid or not supported"). The sample probes for this at startup (`EmulatorCapabilities`) and leaves that one index out of the model on the emulator. Against Azure Cosmos DB the index is created and checked.
+- **Composite indexes over array paths** (`/Orders/[]/Total`): the emulator rejects the whole container ("The indexing policy is invalid or not supported"). The sample probes for this at startup (`EmulatorCapabilities`) and leaves that one index out of the model on the emulator. Only that "indexing policy is invalid" response counts as unsupported; any other error from the probe fails the sample. Against Azure Cosmos DB the index is created and checked.
 - **Multi-property `ORDER BY` without a composite index**: Azure Cosmos DB fails the query, but the emulator runs it anyway. The sample's `ORDER BY` check therefore only checks the results, not that the index was used.
 
 Transactional batches (including rollback on a conflict), bulk execution and session tokens all work on the emulator, so those checks are never skipped. Two caveats:

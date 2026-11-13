@@ -118,6 +118,14 @@ async Task ToOneJoins()
     var collectionQuery = sql.Commands.FirstOrDefault(c => c.Contains("JOIN [Posts]", StringComparison.Ordinal)) ?? string.Empty;
     Check.That(collectionQuery.Length > 0, "found the posts collection query");
     Check.That(!collectionQuery.Contains("[People]", StringComparison.Ordinal), "posts query does not join People (the owner)");
+    // Before EF Core 11 both split queries ordered by the blog key and the owner key ([b].[Id], [p].[Id]).
+    var blogsQuery = sql.Commands.FirstOrDefault() ?? string.Empty;
+    var blogsOwnerAlias = AliasOf(blogsQuery, "People");
+    Check.That(blogsOwnerAlias.Length > 0 && !OrderByOf(blogsQuery).Contains($"{blogsOwnerAlias}.", StringComparison.Ordinal),
+        $"blogs + owner query's ORDER BY does not include the owner key ({blogsOwnerAlias}.[Id])");
+    var collectionOrderBy = OrderByOf(collectionQuery);
+    Check.That(collectionOrderBy.Length > 0 && !collectionOrderBy.Contains(',', StringComparison.Ordinal),
+        $"posts query's ORDER BY has only the blog key, no owner key (ORDER BY {collectionOrderBy})");
 
     Header("4b. Single query: the reference key is gone from ORDER BY");
     db.ChangeTracker.Clear();
@@ -130,7 +138,7 @@ async Task ToOneJoins()
     Check.Equal(3, single.Count, "single query returns every blog");
     Check.Equal(4, single.Sum(b => b.Posts.Count), "single query loads every post");
     var ownerAlias = AliasOf(sql.Last, "People");
-    var orderBy = sql.Last[(sql.Last.LastIndexOf("ORDER BY", StringComparison.Ordinal) + "ORDER BY".Length)..];
+    var orderBy = OrderByOf(sql.Last);
     Check.That(ownerAlias.Length > 0 && sql.Last.Contains("ORDER BY", StringComparison.Ordinal), "single query joins People and has an ORDER BY");
     Check.That(!orderBy.Contains($"{ownerAlias}.", StringComparison.Ordinal), $"ORDER BY does not include the owner key ({ownerAlias}.[Id])");
 }
@@ -152,6 +160,13 @@ async Task NoOpCasts()
 }
 
 // Finds the alias SQL Server gives a table, e.g. "[People] AS [p]" -> "[p]".
+// The columns after the last ORDER BY, or empty if there's none.
+static string OrderByOf(string sqlText)
+{
+    var start = sqlText.LastIndexOf("ORDER BY", StringComparison.Ordinal);
+    return start < 0 ? string.Empty : sqlText[(start + "ORDER BY".Length)..].Trim();
+}
+
 static string AliasOf(string sqlText, string table)
 {
     var marker = $"[{table}] AS ";
