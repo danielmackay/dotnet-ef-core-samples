@@ -6,7 +6,7 @@ A collection of the latest features of EF Core.  These are the more interesting 
 
 ## Usage
 
-1. Run the AppHost to start SQL Server
+1. Run the AppHost to start SQL Server (SQL Server 2025) and the Cosmos DB emulator (used by the Cosmos DB sample)
 2. Run any sample
 
 Each sample is a self-contained console application that can be run independently to explore and learn.
@@ -24,13 +24,16 @@ The repo targets .NET 11 and EF Core 11. The `dotnet-ef` CLI is pinned in the lo
 - [Compiled Models](CompiledModels)
 - [Compiled Queries](CompiledQueries)
 - [Complex Types](ComplexTypes)
+- [Cosmos DB](CosmosDb)
 - [DateOnly and TimeOnly](DateOnlyTimeOnly)
 - [DbContext Pooling](DbContextPooling)
 - [Enhanced Bulk Update and Delete](EnhancedBulkUpdateAndDelete)
 - [Enhanced JSON Columns](EnhancedJsonColumns)
 - [Hierarchy IDs](HierarchyIds)
 - [JSON Columns](JsonColumns)
+- [JSON Functions](JsonFunctions)
 - [Keyset Pagination](KeysetPagination)
+- [LINQ Translations (EF Core 11)](LinqTranslations11)
 - [Migration Bundles](MigrationBundles)
 - [Migrations 11](Migrations11)
 - [Owned Entities](OwnedEntities)
@@ -57,6 +60,9 @@ Grouped by the EF Core version that introduced the feature.
 
 The EF Core 11 samples check their own results: each prints a `PASS`/`FAIL` line per check and exits with a non-zero code if any check fails.
 
+- [Cosmos DB](CosmosDb) (complex types and indexing policy)
+- [JSON Functions](JsonFunctions) (`JsonPathExists`, `JsonContains`, `JSON_CONTAINS` at compatibility 170)
+- [LINQ Translations (EF Core 11)](LinqTranslations11) (`FullJoin`, `MaxBy`/`MinBy`, GroupBy, to-one joins, no-op `CAST`s)
 - [Migrations 11](Migrations11) (`ExcludeForeignKeyFromMigrations()`, latest migration ID in the snapshot, `dotnet ef` CLI changes)
 - [Temporal Tables](TemporalTables) (period columns mapped to CLR properties)
 
