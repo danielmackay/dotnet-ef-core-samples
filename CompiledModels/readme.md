@@ -8,11 +8,13 @@ Compiled models are created via the dotnet CLI:
 dotnet ef dbcontext optimize
 ```
 
-You can ensure you've got the latest version of the tools by running:
+The repo pins `dotnet-ef` in its local tool manifest, so restore it once with:
 
 ```bash
-dotnet tool update --global dotnet-ef
+dotnet tool restore
 ```
+
+The project being optimized must reference `Microsoft.EntityFrameworkCore.Design`. From EF Core 11 the `Microsoft.EntityFrameworkCore.Tools` package no longer brings it in.
 
 This will generate several classes under a `CompiledModels` folder.  You need to hook this up to your DbOptionsBuilder like so:
 

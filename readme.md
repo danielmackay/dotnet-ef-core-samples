@@ -6,10 +6,20 @@ A collection of the latest features of EF Core.  These are the more interesting 
 
 ## Usage
 
-1. Run the AppHost to start SQL Server
+1. Run the AppHost to start SQL Server (SQL Server 2025 with Full-Text Search) and the Cosmos DB emulator (used by the Cosmos DB sample)
 2. Run any sample
 
+The stock SQL Server Linux image doesn't include Full-Text Search, so the AppHost builds its own image from [AppHost/SqlServer/Dockerfile](AppHost/SqlServer/Dockerfile), which adds the `mssql-server-fts` package. The first start takes a few minutes while Docker downloads about 700 MB of packages. Later starts reuse the built image.
+
+**Apple Silicon (ARM64) Macs:** SQL Server for Linux, and its full-text package, only ship for amd64, so the container runs under emulation. In Docker Desktop, turn on "Use Rosetta for x86_64/amd64 emulation on Apple Silicon" (Settings > General). OrbStack uses Rosetta by default. Docker prints a platform-mismatch warning, which you can ignore. Expect slower startup and slower full-text population than on an x64 machine.
+
+The SQL Server container is persistent. If the FullTextSearch sample reports that Full-Text Search isn't installed after you pull this change, delete the old `sql` container in Docker so the AppHost recreates it from the new image.
+
 Each sample is a self-contained console application that can be run independently to explore and learn.
+
+To run every sample and see each one's exit code, start the AppHost and run `./run-samples.sh` (or `./run-samples.sh <Sample> ...` for a few). The script exits with a non-zero code if any sample fails.
+
+The repo targets .NET 11 and EF Core 11. The `dotnet-ef` CLI is pinned in the local tool manifest, so run `dotnet tool restore` once and then `dotnet dotnet-ef ...` (or `dotnet ef ...`).
 
 ## All Features
 
@@ -20,14 +30,20 @@ Each sample is a self-contained console application that can be run independentl
 - [Compiled Models](CompiledModels)
 - [Compiled Queries](CompiledQueries)
 - [Complex Types](ComplexTypes)
+- [Complex Types (EF Core 11)](ComplexTypes11)
+- [Cosmos DB](CosmosDb)
 - [DateOnly and TimeOnly](DateOnlyTimeOnly)
 - [DbContext Pooling](DbContextPooling)
 - [Enhanced Bulk Update and Delete](EnhancedBulkUpdateAndDelete)
 - [Enhanced JSON Columns](EnhancedJsonColumns)
+- [Full-Text Search](FullTextSearch)
 - [Hierarchy IDs](HierarchyIds)
 - [JSON Columns](JsonColumns)
+- [JSON Functions](JsonFunctions)
 - [Keyset Pagination](KeysetPagination)
+- [LINQ Translations (EF Core 11)](LinqTranslations11)
 - [Migration Bundles](MigrationBundles)
+- [Migrations 11](Migrations11)
 - [Owned Entities](OwnedEntities)
 - [Primitive Collections](PrimitiveCollections)
 - [Query Filters](QueryFilters)
@@ -43,10 +59,24 @@ Each sample is a self-contained console application that can be run independentl
 - [Temporal Tables](TemporalTables)
 - [Unmapped Types](UnmappedTypes)
 - [Value Converters](ValueConverters)
+- [Vector Search](VectorSearch)
 
 ## Features by EF Core Version
 
 Grouped by the EF Core version that introduced the feature.
+
+### EF Core 11.0
+
+The EF Core 11 samples check their own results: each prints a `PASS`/`FAIL` line per check and exits with a non-zero code if any check fails.
+
+- [Complex Types (EF Core 11)](ComplexTypes11) (TPT/TPC, nested `Property(...)` lambdas, keys and indexes on complex properties, JSON indexes)
+- [Cosmos DB](CosmosDb) (complex types, indexing policy, transactional batches, bulk execution and session tokens)
+- [Full-Text Search](FullTextSearch) (full-text catalogs and indexes in migrations, `FreeTextTable` and `ContainsTable` with rank, hybrid full-text + vector search with `FullJoin` and reciprocal rank fusion)
+- [JSON Functions](JsonFunctions) (`JsonPathExists`, `JsonContains`, `JSON_CONTAINS` at compatibility 170)
+- [LINQ Translations (EF Core 11)](LinqTranslations11) (`FullJoin`, `MaxBy`/`MinBy`, GroupBy, to-one joins, no-op `CAST`s)
+- [Migrations 11](Migrations11) (`ExcludeForeignKeyFromMigrations()`, latest migration ID in the snapshot, `dotnet ef` CLI changes)
+- [Temporal Tables](TemporalTables) (period columns mapped to CLR properties)
+- [Vector Search](VectorSearch) (vector indexes, approximate `VECTOR_SEARCH()`, vectors no longer loaded by default; experimental)
 
 ### EF Core 8.0
 

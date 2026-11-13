@@ -1,7 +1,7 @@
 ﻿using Common;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SmartEnum.EFCore;
-using System.Collections.Immutable;
 
 namespace SmartEnums;
 
@@ -19,19 +19,13 @@ public class ApplicationDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        // modelBuilder
-        //     .Entity<Product>()
-        //     // .Property(p => p.Categories)
-        //     // .Property(p => p.Name)
-        //     // .PrimitiveCollection(c => c.Categories);
-        //     .OwnsMany(c => c.Categories, builder => builder.ToJson());
-
+        // Mapping the list as a primitive collection (rather than converting the whole list) stores it
+        // as a JSON array, so EF can translate queries such as Categories.Contains(...) to OPENJSON.
+        // EF Core 11's Property() no longer configures primitive collections, so PrimitiveCollection() is required.
         modelBuilder.Entity<Product>()
-            .Property(p => p.Categories)
-            .HasConversion(
-                v => v.Select(c => c.Value),
-                v => v.Select(ProductCategory.FromValue).ToList());
-        // .OwnsOne(c => c.Address);
+            .PrimitiveCollection(p => p.Categories)
+            .ElementType(e => e.HasConversion(
+                new ValueConverter<ProductCategory, int>(c => c.Value, v => ProductCategory.FromValue(v))));
     }
 
     protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
