@@ -24,6 +24,7 @@ The repo targets .NET 11 and EF Core 11. The `dotnet-ef` CLI is pinned in the lo
 - [Compiled Models](CompiledModels)
 - [Compiled Queries](CompiledQueries)
 - [Complex Types](ComplexTypes)
+- [Complex Types (EF Core 11)](ComplexTypes11)
 - [Cosmos DB](CosmosDb)
 - [DateOnly and TimeOnly](DateOnlyTimeOnly)
 - [DbContext Pooling](DbContextPooling)
@@ -35,6 +36,7 @@ The repo targets .NET 11 and EF Core 11. The `dotnet-ef` CLI is pinned in the lo
 - [Keyset Pagination](KeysetPagination)
 - [LINQ Translations (EF Core 11)](LinqTranslations11)
 - [Migration Bundles](MigrationBundles)
+- [Migrations 11](Migrations11)
 - [Owned Entities](OwnedEntities)
 - [Primitive Collections](PrimitiveCollections)
 - [Query Filters](QueryFilters)
@@ -50,6 +52,7 @@ The repo targets .NET 11 and EF Core 11. The `dotnet-ef` CLI is pinned in the lo
 - [Temporal Tables](TemporalTables)
 - [Unmapped Types](UnmappedTypes)
 - [Value Converters](ValueConverters)
+- [Vector Search](VectorSearch)
 
 ## Features by EF Core Version
 
@@ -59,10 +62,13 @@ Grouped by the EF Core version that introduced the feature.
 
 The EF Core 11 samples check their own results: each prints a `PASS`/`FAIL` line per check and exits with a non-zero code if any check fails.
 
+- [Complex Types (EF Core 11)](ComplexTypes11) (TPT/TPC, nested `Property(...)` lambdas, keys and indexes on complex properties, JSON indexes)
 - [Cosmos DB](CosmosDb) (complex types, indexing policy, transactional batches, bulk execution and session tokens)
 - [JSON Functions](JsonFunctions) (`JsonPathExists`, `JsonContains`, `JSON_CONTAINS` at compatibility 170)
 - [LINQ Translations (EF Core 11)](LinqTranslations11) (`FullJoin`, `MaxBy`/`MinBy`, GroupBy, to-one joins, no-op `CAST`s)
+- [Migrations 11](Migrations11) (`ExcludeForeignKeyFromMigrations()`, latest migration ID in the snapshot, `dotnet ef` CLI changes)
 - [Temporal Tables](TemporalTables) (period columns mapped to CLR properties)
+- [Vector Search](VectorSearch) (vector indexes, approximate `VECTOR_SEARCH()`, vectors no longer loaded by default; experimental)
 
 ### EF Core 8.0
 
