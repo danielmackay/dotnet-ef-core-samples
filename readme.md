@@ -48,6 +48,7 @@ The repo targets .NET 11 and EF Core 11. The `dotnet-ef` CLI is pinned in the lo
 - [Temporal Tables](TemporalTables)
 - [Unmapped Types](UnmappedTypes)
 - [Value Converters](ValueConverters)
+- [Vector Search](VectorSearch)
 
 ## Features by EF Core Version
 
@@ -59,6 +60,7 @@ The EF Core 11 samples check their own results: each prints a `PASS`/`FAIL` line
 
 - [JSON Functions](JsonFunctions) (`JsonPathExists`, `JsonContains`, `JSON_CONTAINS` at compatibility 170)
 - [Temporal Tables](TemporalTables) (period columns mapped to CLR properties)
+- [Vector Search](VectorSearch) (vector indexes, approximate `VECTOR_SEARCH()`, vectors no longer loaded by default; experimental)
 
 ### EF Core 8.0
 

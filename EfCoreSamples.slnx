@@ -41,4 +41,5 @@
   <Project Path="TemporalTables/TemporalTables.csproj" />
   <Project Path="UnmappedTypes/UnmappedTypes.csproj" />
   <Project Path="ValueConverters/ValueConverters.csproj" />
+  <Project Path="VectorSearch/VectorSearch.csproj" />
 </Solution>
